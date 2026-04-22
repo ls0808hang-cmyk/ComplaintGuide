@@ -1,98 +1,230 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>쓰레기 무단투기 어디에 신고하나요? 신고 방법 및 포상금 안내 | ComplaintGuide</title>
-  <meta name="description" content="집 앞 쓰레기 무단투기로 눈살을 찌푸리고 계신가요? 확실한 신고 방법, 증거 확보 요령, 지자체 포상금 제도까지 상세히 정리해 드립니다.">
-  <link rel="stylesheet" href="/assets/css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>쓰레기 무단투기는 어디에 신고하나요? | ComplaintGuide</title>
+  <meta name="description" content="생활폐기물, 쓰레기 무단투기, 반복되는 청소 불편을 어디에 문의하면 좋을지, 위치·반복성·사진 등 핵심 정리 포인트와 함께 설명한 가이드입니다." />
+  <meta name="robots" content="index,follow" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="쓰레기 무단투기는 어디에 신고하나요? | ComplaintGuide" />
+  <meta property="og:description" content="무단투기·청소행정 민원의 시작점과 준비물, 주의사항을 정리한 가이드입니다." />
+  <meta property="og:locale" content="ko_KR" />
+  <meta name="theme-color" content="#0f172a" />
   <style>
-    body { background: var(--bg); color: var(--text); line-height: 1.7; }
-    .guide-content { background: #fff; padding: 40px; border-radius: var(--radius-xl); border: 1px solid var(--line); box-shadow: var(--shadow); margin-top: 30px; }
-    .official-box { background: #f0fdf4; border: 1px dashed #16a34a; padding: 25px; border-radius: var(--radius-lg); margin: 30px 0; }
-    h2 { border-left: 5px solid #16a34a; padding-left: 15px; margin-top: 40px; }
-    .check-list { list-style: none; padding: 0; }
-    .check-list li { padding: 8px 0; display: flex; align-items: flex-start; gap: 10px; }
-    .check-list li::before { content: "✓"; color: #16a34a; font-weight: bold; }
-    .breadcrumb { font-size: 0.9rem; color: var(--muted); margin-bottom: 20px; }
+    :root{--bg:#f8fafc;--surface:#fff;--line:#e2e8f0;--text:#0f172a;--muted:#475569;--primary:#1d4ed8;--accent:#0f766e;--shadow:0 14px 40px rgba(15,23,42,.08);--radius-xl:24px;--max:1080px}
+    *{box-sizing:border-box} body{margin:0;font-family:"Pretendard","Noto Sans KR","Apple SD Gothic Neo",Arial,sans-serif;color:var(--text);background:radial-gradient(circle at top left, rgba(29,78,216,.06), transparent 28%),var(--bg);line-height:1.68}
+    a{text-decoration:none;color:inherit}.container{width:min(calc(100% - 32px),var(--max));margin:0 auto}
+    header{position:sticky;top:0;z-index:20;background:rgba(248,250,252,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+    .topbar{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:14px 0}.brand{display:flex;align-items:center;gap:10px;font-weight:800}.badge{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,var(--primary),var(--accent));color:#fff;font-weight:900}
+    nav{display:flex;gap:10px;flex-wrap:wrap} nav a{padding:10px 14px;border-radius:999px;color:var(--muted);font-weight:700} nav a.cta{background:var(--primary);color:#fff}
+    main{padding:28px 0 40px}.breadcrumb{display:flex;gap:8px;flex-wrap:wrap;color:#64748b;font-size:.92rem;margin-bottom:14px}
+    .hero,.card,.faq-card,.cta,.notice{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-xl);box-shadow:var(--shadow)}
+    .hero,.card,.faq-card,.cta,.notice{padding:24px}.eyebrow{display:inline-flex;padding:8px 12px;border-radius:999px;background:#dbeafe;color:#1e3a8a;font-size:.9rem;font-weight:800;margin-bottom:16px}
+    h1,h2,h3{line-height:1.22;letter-spacing:-.03em;margin:0 0 14px} h1{font-size:clamp(2rem,4vw,3rem)} h2{font-size:clamp(1.35rem,2.5vw,2rem)}
+    p{margin:0 0 14px;color:var(--muted)} .lead{font-size:1.06rem}
+    .btn-row,.link-row{display:flex;gap:10px;flex-wrap:wrap}.btn,.link-btn{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 16px;border-radius:14px;font-weight:800}
+    .btn.primary,.link-btn.primary{background:var(--primary);color:#fff}.btn.secondary,.link-btn.secondary{background:#e2e8f0;color:var(--text)}
+    section{padding:22px 0}.grid-2,.grid-3{display:grid;gap:16px}.grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}.grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .mini-badge{display:inline-block;padding:6px 10px;border-radius:999px;background:#eff6ff;color:#1e3a8a;font-size:.82rem;font-weight:800;margin-bottom:10px}
+    ul{margin:10px 0 0;padding-left:18px;color:var(--muted)} li{margin-bottom:8px}
+    .notice{background:linear-gradient(135deg,#0f172a,#1e3a8a);color:#fff;border:none}.notice p,.notice li{color:rgba(255,255,255,.9)}
+    details summary{list-style:none;cursor:pointer;font-weight:800;position:relative;padding-right:26px} details summary::-webkit-details-marker{display:none} details summary::after{content:"+";position:absolute;right:0;top:0;color:var(--primary);font-size:1.2rem} details[open] summary::after{content:"−"}
+    .faq-item{border-top:1px solid var(--line);padding:14px 0}.faq-item:first-child{border-top:0;padding-top:0}
+    footer{border-top:1px solid var(--line);background:#fff}.footer-inner{padding:26px 0 38px;display:grid;grid-template-columns:1.2fr .8fr;gap:22px}.footer-links{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}.footer-links a{padding:10px 12px;border-radius:12px;background:#f1f5f9;color:var(--muted);font-weight:700}.footer-note{font-size:.94rem;color:#64748b;margin-top:10px}
+    @media (max-width:860px){.grid-2,.grid-3,.footer-inner{grid-template-columns:1fr}.footer-links{justify-content:flex-start}}
+    @media (max-width:720px){.container{width:min(calc(100% - 24px),var(--max))}.topbar{flex-direction:column;align-items:flex-start}nav{width:100%}.hero,.card,.faq-card,.cta,.notice{padding:20px}.btn-row,.link-row{flex-direction:column}.btn,.link-btn{width:100%}}
   </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container topbar" style="display: flex; align-items: center; justify-content: space-between; padding: 14px 0;">
-      <a class="brand" href="/" style="display: inline-flex; align-items: center; gap: 10px; font-weight: 800; color: #0f172a;">
-        <span style="width: 38px; height: 38px; border-radius: 12px; display: grid; place-items: center; background: linear-gradient(135deg, #1d4ed8, #0f766e); color: #fff;">CG</span>
-        <span>ComplaintGuide</span>
-      </a>
-      <nav style="display: flex; gap: 15px;">
-        <a href="/guides/" style="font-weight: 600; color: #475569;">가이드 목록</a>
-        <a href="/search/" style="font-weight: 600; color: #475569;">민원 찾기</a>
+  <header>
+    <div class="container topbar">
+      <a class="brand" href="/"><span class="badge">CG</span><span>ComplaintGuide</span></a>
+      <nav>
+        <a href="/">홈</a>
+        <a href="/search/">민원 찾기</a>
+        <a href="/guides/">가이드</a>
+        <a href="/faq/">FAQ</a>
+        <a class="cta" href="/search/">지금 찾아보기</a>
       </nav>
     </div>
   </header>
 
-  <main class="container" style="padding: 40px 0;">
-    <nav class="breadcrumb">
-      <a href="/">홈</a> > <a href="/guides/">가이드 허브</a> > 쓰레기 무단투기 신고 가이드
-    </nav>
-
-    <article class="guide-content">
-      <span style="color: #16a34a; font-weight: 800; font-size: 0.9rem; letter-spacing: 0.1em;">생활/환경 가이드</span>
-      <h1 style="font-size: 2.5rem; margin: 15px 0;">쓰레기 무단투기, 확실한 증거가 빠른 해결의 열쇠입니다</h1>
-      <p style="font-size: 1.1rem; color: var(--muted);">종량제 봉투 미사용, 대형 폐기물 방치, 차량을 이용한 투기 등 불법 행위를 근절하기 위한 신고 방법을 안내합니다.</p>
-
-      <div class="official-box">
-        <h3 style="margin-top: 0; color: #14532d;">🚀 공식 신고 및 제보 창구</h3>
-        <p>무단투기 신고는 지자체의 자원순환과 또는 환경과에서 담당합니다.</p>
-        <ul style="margin: 15px 0;">
-          <li><strong>안전신문고 (앱/웹):</strong> 사진/영상 첨부가 간편하여 가장 권장됩니다.</li>
-          <li><strong>관할 구청/군청 환경과:</strong> 유선으로 직접 신고 및 현장 단속 요청 가능</li>
-          <li><strong>생활민원 살피미:</strong> 지자체별 운영 앱</li>
-        </ul>
+  <main>
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="/">홈</a><span>/</span><a href="/guides/">가이드</a><span>/</span><span>쓰레기 무단투기는 어디에 신고하나요?</span>
       </div>
 
-      <h2>1. 신고를 위한 증거 확보 요령</h2>
-      <p>단순히 쓰레기가 버려져 있다는 사실만으로는 행위자를 처벌하기 어렵습니다. 다음 자료를 최대한 확보해 주세요.</p>
-      <ul class="check-list">
-        <li><strong>행위자 식별:</strong> 투기자의 얼굴이나 차량 번호판이 명확히 보이는 사진 또는 영상</li>
-        <li><strong>투기 내용물:</strong> 버려진 쓰레기 더미 속에 행위자를 유추할 수 있는 단서 (택배 송장, 고지서 등)</li>
-        <li><strong>일시 및 장소:</strong> 정확한 투기 시간과 상세 위치</li>
-      </ul>
+      <article class="hero">
+        <span class="eyebrow">환경 민원 가이드</span>
+        <h1>쓰레기 무단투기는 어디에 신고하나요?</h1>
+        <p class="lead">
+          집 앞, 골목, 공터, 상가 주변 등에서 반복되는 쓰레기 무단투기는
+          불편이 크지만 <strong>어느 부서에 말해야 하는지</strong> 막막한 경우가 많습니다.
+        </p>
+        <p>
+          이 문제는 단순히 “쓰레기다”보다
+          <strong>어디에서, 얼마나 자주, 어떤 형태로 발생하는지</strong>를 정리하는 것이 중요합니다.
+          지역 행정과 연결되는 경우가 많기 때문에 <strong>지역 정보</strong>도 큰 도움이 됩니다.
+        </p>
+        <div class="btn-row">
+          <a class="btn primary" href="https://www.epeople.go.kr" target="_blank" rel="noopener noreferrer">국민신문고 바로가기</a>
+          <a class="btn secondary" href="/search/?category=waste">검색으로 다시 찾기</a>
+        </div>
+      </article>
 
-      <h2>2. 신고 포상금 제도 안내</h2>
-      <p>많은 지자체에서 무단투기 근절을 위해 신고 포상금 제도를 운영하고 있습니다.</p>
-      <ul style="padding-left: 20px;">
-        <li><strong>포상금 액수:</strong> 보통 과태료 부과 금액의 10~20% 내외 (지자체 조례에 따라 상이)</li>
-        <li><strong>지급 조건:</strong> 행위자가 특정되어 실제로 과태료가 부과된 경우</li>
-        <li><strong>신청 방법:</strong> 신고 시 포상금 지급 신청 의사를 밝히고 본인 계좌 정보 제공</li>
-      </ul>
+      <section>
+        <div class="grid-3">
+          <div class="card">
+            <span class="mini-badge">핵심</span>
+            <h2>무엇이 중요한가요?</h2>
+            <p>반복성, 위치, 발생 시간대가 정리되어 있으면 민원 설명이 쉬워집니다.</p>
+          </div>
+          <div class="card">
+            <span class="mini-badge">문의 방향</span>
+            <h2>어디부터 생각하나요?</h2>
+            <p>보통은 <strong>지역 청소행정 흐름</strong>이나 공식 민원 채널을 함께 떠올리면 이해하기 쉽습니다.</p>
+          </div>
+          <div class="card">
+            <span class="mini-badge">준비</span>
+            <h2>무엇이 도움되나요?</h2>
+            <p>사진, 위치, 날짜, 반복 여부가 있으면 전달력이 좋아집니다.</p>
+          </div>
+        </div>
+      </section>
 
-      <div style="background: #fff8f8; border: 1px solid #fecaca; padding: 20px; border-radius: var(--radius-md); margin-top: 30px;">
-        <h3 style="color: var(--danger); margin-top: 0;">⚠️ 주의사항</h3>
-        <p>타인의 쓰레기 봉투를 함부로 뒤지는 행위는 법적 분쟁의 소지가 있을 수 있으므로, 가급적 외부에서 보이는 증거(송장 등)를 위주로 촬영하시기 바랍니다. 또한 허위 신고 시 처벌받을 수 있습니다.</p>
-      </div>
+      <section>
+        <div class="grid-2">
+          <div class="card">
+            <span class="mini-badge">1단계</span>
+            <h2>문제를 구체적으로 적어보세요</h2>
+            <ul>
+              <li>어디에서 발생하는지</li>
+              <li>한 번인지 반복되는지</li>
+              <li>생활폐기물인지, 무단투기처럼 보이는지</li>
+              <li>악취·해충·통행불편 등 2차 불편이 있는지</li>
+            </ul>
+          </div>
 
-      <h2>3. 자주 묻는 질문 (FAQ)</h2>
-      <details style="border-bottom: 1px solid var(--line); padding: 15px 0;">
-        <summary style="font-weight: 700; cursor: pointer;">익명으로 신고할 수 있나요?</summary>
-        <p style="padding-top: 10px; color: var(--muted);">신고 자체는 익명이 가능하지만, 포상금을 지급받으려면 반드시 인적 사항을 밝혀야 합니다. 또한 공식 민원 접수 시 개인정보는 철저히 보호됩니다.</p>
-      </details>
-      <details style="border-bottom: 1px solid var(--line); padding: 15px 0;">
-        <summary style="font-weight: 700; cursor: pointer;">대형 폐기물(가구 등)은 어떻게 버리나요?</summary>
-        <p style="padding-top: 10px; color: var(--muted);">무단투기 대신 관할 구청 홈페이지에서 '대형폐기물 배출 신고'를 하고 수수료 결제 후 필증을 부착하여 지정된 장소에 내놓으셔야 합니다.</p>
-      </details>
-    </article>
+          <div class="card">
+            <span class="mini-badge">2단계</span>
+            <h2>지역 기준으로 보는 것이 중요합니다</h2>
+            <p>
+              쓰레기와 청소행정은 지역별 운영 방식 차이가 있을 수 있어
+              지역 정보가 있을수록 설명이 더 현실적이 됩니다.
+            </p>
+          </div>
 
-    <section style="margin-top: 50px; text-align: center;">
-      <h3>다른 환경 문제가 있으신가요?</h3>
-      <a href="/search/" class="btn btn-primary" style="background: var(--primary); color: #fff; padding: 15px 30px; border-radius: 12px; display: inline-block; margin-top: 15px; font-weight: 800;">민원 안내 도우미 검색하기</a>
-    </section>
+          <div class="card">
+            <span class="mini-badge">3단계</span>
+            <h2>공식 민원 창구로 방향을 확인하세요</h2>
+            <p>
+              담당 부서를 확실히 모르겠다면 공식 민원 채널을 통해
+              어디로 연결되는지 확인하는 방식이 이해하기 쉽습니다.
+            </p>
+            <div class="link-row">
+              <a class="link-btn primary" href="https://www.epeople.go.kr" target="_blank" rel="noopener noreferrer">국민신문고 열기</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <span class="mini-badge">4단계</span>
+            <h2>반복 문제라면 기록을 남기세요</h2>
+            <p>
+              날짜별로 계속 발생한다면 한 번의 사진보다
+              <strong>반복 기록</strong>이 상황을 설명하는 데 더 도움이 될 수 있습니다.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="grid-2">
+          <div class="card">
+            <h2>이럴 때 읽어보세요</h2>
+            <ul>
+              <li>집 앞 골목에 무단투기가 반복될 때</li>
+              <li>상가 주변 쓰레기로 악취와 해충이 생길 때</li>
+              <li>사유지인지 공공장소인지 애매할 때</li>
+              <li>어느 부서에 말해야 할지 모르겠을 때</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h2>미리 준비하면 좋은 정보</h2>
+            <ul>
+              <li>정확한 위치</li>
+              <li>발견 날짜와 시간</li>
+              <li>반복 여부</li>
+              <li>사진</li>
+              <li>생활에 어떤 불편이 생기는지</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="notice">
+          <h2>주의할 점</h2>
+          <ul>
+            <li>공공장소인지 사유지인지에 따라 설명 방식이 달라질 수 있습니다.</li>
+            <li>한 번의 상황인지 반복 문제인지 구분해서 적는 편이 좋습니다.</li>
+            <li>ComplaintGuide는 공식 접수처가 아니므로 최종 민원은 공식 채널에서 진행해야 합니다.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <div class="faq-card">
+          <h2>자주 묻는 질문</h2>
+          <div class="faq-item">
+            <details open>
+              <summary>사진이 꼭 필요한가요?</summary>
+              <p>필수라고 단정할 수는 없지만, 위치와 상태를 설명하는 데 큰 도움이 됩니다.</p>
+            </details>
+          </div>
+          <div class="faq-item">
+            <details>
+              <summary>한 번만 발생해도 문의할 수 있나요?</summary>
+              <p>가능합니다. 다만 반복 여부를 함께 적으면 상황 설명이 더 쉬워집니다.</p>
+            </details>
+          </div>
+          <div class="faq-item">
+            <details>
+              <summary>담당 부서를 모르면 어떻게 하나요?</summary>
+              <p>그럴 때 공식 민원 창구에서 시작점을 확인하는 방식이 이해하기 쉽습니다.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="cta">
+          <h2>다음 단계</h2>
+          <p>지금 겪는 무단투기 문제를 지역과 함께 적어보면 더 구체적으로 문의 방향을 정리할 수 있습니다.</p>
+          <div class="link-row">
+            <a class="link-btn primary" href="/search/?category=waste">무단투기 민원 다시 찾기</a>
+            <a class="link-btn secondary" href="/guides/welfare-help-guide.html">복지 상담 가이드 보기</a>
+            <a class="link-btn secondary" href="/guides/">가이드 허브로 이동</a>
+          </div>
+        </div>
+      </section>
+    </div>
   </main>
 
-  <footer style="margin-top: 60px; border-top: 1px solid var(--line); padding: 40px 0; background: #fff;">
-    <div class="container" style="text-align: center;">
-      <p style="color: var(--muted); font-size: 0.9rem;">본 사이트는 공식 기관이 아니며, 정보 제공을 목적으로 운영됩니다. 정확한 내용은 공식 기관 사이트에서 확인 바랍니다.</p>
-      <p>&copy; 2026 ComplaintGuide. All rights reserved.</p>
+  <footer>
+    <div class="container footer-inner">
+      <div>
+        <a class="brand" href="/"><span class="badge">CG</span><span>ComplaintGuide</span></a>
+        <p class="footer-note">ComplaintGuide는 생활 속 문제 상황에서 적절한 문의 기관과 공식 민원 경로를 이해하기 쉽게 안내하는 정보형 서비스입니다.</p>
+      </div>
+      <div class="footer-links">
+        <a href="/about/">About</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/terms/">Terms</a>
+        <a href="/contact/">Contact</a>
+        <a href="/faq/">FAQ</a>
+      </div>
     </div>
   </footer>
 </body>
