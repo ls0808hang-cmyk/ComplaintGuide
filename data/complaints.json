@@ -1,0 +1,142 @@
+{
+  "complaints": [
+    {
+      "id": "moving-report",
+      "category": "행정/거주",
+      "title": "전입신고",
+      "keywords": ["전입", "이사", "거주지", "주소 변경", "동사무소", "민원", "전입신고"],
+      "description": "새로운 거주지로 이동했을 때 거주 관계의 변동 사항을 등록하는 민원입니다.",
+      "recommendedAgency": "관할 읍·면 사무소 또는 동 주민센터",
+      "officialUrl": "https://www.gov.kr/main?a=AA020개별서비스&selectedId=01&id=13100000015",
+      "backupUrl": "https://www.gov.kr",
+      "documents": [
+        "신분증 (주민등록증, 운전면허증 등)",
+        "세대주가 아닐 경우 세대주 신분증 및 도장",
+        "온라인 신청 시 공동인증서 필요"
+      ],
+      "faq": [
+        {
+          "q": "이사 후 며칠 이내에 해야 하나요?",
+          "a": "이사한 날로부터 14일 이내에 신고해야 합니다."
+        }
+      ],
+      "cautions": "정당한 사유 없이 14일 이내에 신고하지 않으면 과태료가 부과될 수 있습니다.",
+      "guideUrl": "/guides/moving-report-guide.html"
+    },
+    {
+      "id": "floor-noise",
+      "category": "생활/환경",
+      "title": "층간소음",
+      "keywords": ["층간소음", "소음", "아파트 소음", "이웃 소음", "발소리", "항의", "신고"],
+      "description": "공동주택 등에서 발생하는 층간소음으로 인한 분쟁을 해결하기 위한 상담 및 중재 서비스입니다.",
+      "recommendedAgency": "층간소음 이웃사이센터 (한국환경공단)",
+      "officialUrl": "https://www.noiseinfo.or.kr",
+      "backupUrl": "https://www.epeople.go.kr",
+      "documents": [
+        "소음 발생 상황 기록 (날짜, 시간, 유형)",
+        "현장 사진 또는 동영상(선택사항)",
+        "관리사무소 상담 기록"
+      ],
+      "faq": [
+        {
+          "q": "보복 소음을 내도 되나요?",
+          "a": "보복 소음은 형사 처벌의 대상이 될 수 있으므로 반드시 공식 중재 절차를 이용하세요."
+        }
+      ],
+      "cautions": "직접적인 대면 항의보다는 관리사무소나 공식 중재 기관을 통하는 것이 안전합니다.",
+      "guideUrl": "/guides/floor-noise-guide.html"
+    },
+    {
+      "id": "road-damage",
+      "category": "안전/교통",
+      "title": "도로 파손 (포트홀)",
+      "keywords": ["도로", "포트홀", "파손", "맨홀", "도로 보수", "위험", "교통 사고"],
+      "description": "도로의 파손이나 포트홀로 인해 통행이 위험한 경우 보수를 요청하는 민원입니다.",
+      "recommendedAgency": "국민신문고 또는 관할 지자체 도로관리과",
+      "officialUrl": "https://www.epeople.go.kr",
+      "backupUrl": "https://www.safepeople.go.kr",
+      "documents": [
+        "파손 부위 사진",
+        "상세 위치 (주소 또는 인근 지형물)",
+        "피해 상황 설명"
+      ],
+      "faq": [
+        {
+          "q": "포트홀로 차량이 파손되었어요.",
+          "a": "국가배상 제도를 통해 보상을 청구할 수 있습니다. 사고 현장 사진과 블랙박스 영상을 반드시 확보하세요."
+        }
+      ],
+      "cautions": "현장 사진 촬영 시 차량 통행에 유의하여 안전을 확보한 후 진행하세요.",
+      "guideUrl": "/guides/road-damage-guide.html"
+    },
+    {
+      "id": "illegal-dumping",
+      "category": "생활/환경",
+      "title": "쓰레기 무단투기",
+      "keywords": ["쓰레기", "무단투기", "불법 투기", "오물", "환경 오염", "폐기물", "신고"],
+      "description": "지정된 장소 외에 쓰레기를 버리거나 종량제 봉투를 사용하지 않는 행위를 신고합니다.",
+      "recommendedAgency": "관할 구청 환경과 또는 생활민원 창구",
+      "officialUrl": "https://www.epeople.go.kr",
+      "backupUrl": "https://www.safetyreport.go.kr",
+      "documents": [
+        "투기 장면이 담긴 사진 또는 영상",
+        "투기 위치 및 일시",
+        "투기자의 신원을 알 수 있는 단서 (차량번호 등)"
+      ],
+      "faq": [
+        {
+          "q": "신고 포상금이 있나요?",
+          "a": "지자체별 조례에 따라 신고 포상금이 지급될 수 있습니다."
+        }
+      ],
+      "cautions": "허위 신고 시 불이익을 받을 수 있으므로 명확한 증거를 바탕으로 신고하세요.",
+      "guideUrl": "/guides/illegal-dumping-guide.html"
+    },
+    {
+      "id": "welfare-help",
+      "category": "복지/보건",
+      "title": "복지 혜택 및 위기 가정 지원",
+      "keywords": ["복지", "기초수급", "도움", "지원금", "위기 가정", "복지 서비스", "사회복지"],
+      "description": "어려운 상황에 처한 개인이나 가정이 필요한 복지 서비스를 찾고 지원받을 수 있도록 안내합니다.",
+      "recommendedAgency": "보건복지상담센터 (국번없이 129) 또는 복지로",
+      "officialUrl": "https://www.bokjiro.go.kr",
+      "backupUrl": "https://www.mohw.go.kr",
+      "documents": [
+        "신분증",
+        "소득/재산 증빙 서류 (필요시)",
+        "가족관계 증명서"
+      ],
+      "faq": [
+        {
+          "q": "전화로 상담이 가능한가요?",
+          "a": "129 보건복지콜센터를 통해 24시간 상담이 가능합니다."
+        }
+      ],
+      "cautions": "부정 수급은 엄격히 금지되며, 상담을 통해 적합한 서비스를 찾는 것이 중요합니다.",
+      "guideUrl": "/guides/welfare-help-guide.html"
+    },
+    {
+      "id": "consumer-complaint",
+      "category": "경제/금융",
+      "title": "소비자 피해 및 환불",
+      "keywords": ["소비자", "피해", "환불", "불량", "사기", "상담", "피해 구제", "환불 거부"],
+      "description": "제품 구매 또는 서비스 이용 과정에서 발생한 피해에 대해 상담하고 구제를 요청합니다.",
+      "recommendedAgency": "한국소비자원 (국번없이 1372)",
+      "officialUrl": "https://www.kca.go.kr",
+      "backupUrl": "https://www.ftc.go.kr",
+      "documents": [
+        "구매 영수증 또는 결제 내역",
+        "제품 사진 또는 계약서",
+        "업체와 주고받은 연락 내용"
+      ],
+      "faq": [
+        {
+          "q": "단순 변심도 환불이 되나요?",
+          "a": "전자상거래법상 대부분 7일 이내에 환불이 가능하지만 제품 상태 등에 따라 다를 수 있습니다."
+        }
+      ],
+      "cautions": "피해 발생 즉시 증빙 자료를 확보하고 업체에 서면(내용증명 등)으로 의사를 표시하는 것이 좋습니다.",
+      "guideUrl": "/guides/consumer-complaint-guide.html"
+    }
+  ]
+}

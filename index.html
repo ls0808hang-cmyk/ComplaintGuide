@@ -1,14 +1,1176 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="ko">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hello World</title>
-  <link href='/style.css' rel='stylesheet'>
+  <title>어디에 문의해야 할까? | ComplaintGuide</title>
+  <meta
+    name="description"
+    content="문제 상황을 입력하면 어디에 문의해야 하는지, 어떤 공식 민원 창구를 확인해야 하는지, 어떤 준비물이 필요한지 안내하는 문제 해결형 민원 안내 도우미입니다."
+  />
+  <meta
+    name="keywords"
+    content="민원 안내, 어디에 문의, 어디에 신고, 민원 도우미, 국민신문고, 정부24, 생활 민원, 기관 안내, 공식 문의처"
+  />
+  <meta name="robots" content="index,follow" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="어디에 문의해야 할까? | ComplaintGuide" />
+  <meta
+    property="og:description"
+    content="생활 속 문제 상황을 입력하면 문의 기관, 공식 민원 창구, 준비물, 확인사항을 쉽게 안내합니다."
+  />
+  <meta property="og:locale" content="ko_KR" />
+  <meta name="theme-color" content="#0f172a" />
+
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --surface-soft: #f1f5f9;
+      --line: #e2e8f0;
+      --text: #0f172a;
+      --muted: #475569;
+      --primary: #1d4ed8;
+      --primary-dark: #1e3a8a;
+      --accent: #0f766e;
+      --danger: #b91c1c;
+      --shadow: 0 14px 40px rgba(15, 23, 42, 0.08);
+      --radius-xl: 24px;
+      --radius-lg: 18px;
+      --radius-md: 14px;
+      --max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Pretendard", "Noto Sans KR", "Apple SD Gothic Neo", Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(29, 78, 216, 0.06), transparent 28%),
+        radial-gradient(circle at top right, rgba(15, 118, 110, 0.05), transparent 22%),
+        var(--bg);
+      line-height: 1.65;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: -9999px;
+      top: auto;
+    }
+
+    .skip-link:focus {
+      left: 16px;
+      top: 16px;
+      background: #fff;
+      color: #000;
+      padding: 10px 14px;
+      border-radius: 10px;
+      z-index: 1000;
+      box-shadow: var(--shadow);
+    }
+
+    header.site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(10px);
+      background: rgba(248, 250, 252, 0.86);
+      border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 14px 0;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      font-size: 1.08rem;
+      color: var(--text);
+      letter-spacing: -0.02em;
+    }
+
+    .brand-badge {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: #fff;
+      font-weight: 900;
+      box-shadow: var(--shadow);
+      flex-shrink: 0;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      padding: 10px 14px;
+      border-radius: 999px;
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      background: var(--surface);
+      color: var(--text);
+      outline: none;
+    }
+
+    .nav-cta {
+      background: var(--primary);
+      color: #fff !important;
+      box-shadow: var(--shadow);
+    }
+
+    .hero {
+      padding: 40px 0 18px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 26px;
+      align-items: stretch;
+    }
+
+    .hero-card,
+    .panel,
+    .info-card,
+    .guide-card,
+    .faq-card,
+    .notice-card,
+    .category-card,
+    .mini-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card {
+      padding: 34px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: #dbeafe;
+      color: var(--primary-dark);
+      font-size: 0.9rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    h1, h2, h3 {
+      line-height: 1.22;
+      letter-spacing: -0.03em;
+      margin: 0 0 14px;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 4vw, 3.3rem);
+    }
+
+    h2 {
+      font-size: clamp(1.45rem, 2.4vw, 2.15rem);
+    }
+
+    h3 {
+      font-size: 1.1rem;
+    }
+
+    p {
+      margin: 0 0 14px;
+      color: var(--muted);
+    }
+
+    .hero-lead {
+      font-size: 1.08rem;
+      margin-bottom: 20px;
+    }
+
+    .hero-points {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .mini-card {
+      padding: 16px;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(180deg, #fff, #f8fbff);
+    }
+
+    .mini-card strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 0.98rem;
+    }
+
+    .panel {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .search-box {
+      background: linear-gradient(180deg, #ffffff, #f8fbff);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 18px;
+    }
+
+    .search-box h2 {
+      font-size: 1.35rem;
+      margin-bottom: 10px;
+    }
+
+    .search-form {
+      display: grid;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .field label {
+      display: block;
+      font-size: 0.92rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+
+    .field input,
+    .field select {
+      width: 100%;
+      padding: 15px 16px;
+      border: 1px solid #cbd5e1;
+      border-radius: 14px;
+      font-size: 1rem;
+      color: var(--text);
+      background: #fff;
+    }
+
+    .field input:focus,
+    .field select:focus {
+      outline: 2px solid rgba(29, 78, 216, 0.15);
+      border-color: var(--primary);
+    }
+
+    .button-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 4px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 48px;
+      padding: 0 18px;
+      border-radius: 14px;
+      border: 0;
+      cursor: pointer;
+      font-size: 0.98rem;
+      font-weight: 800;
+      transition: transform 0.15s ease, opacity 0.15s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    .btn-secondary {
+      background: #e2e8f0;
+      color: var(--text);
+    }
+
+    .helper-text {
+      font-size: 0.9rem;
+      color: #64748b;
+      margin-top: 8px;
+    }
+
+    .quick-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .tag-btn {
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--text);
+      border-radius: 999px;
+      padding: 10px 13px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .tag-btn:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    .side-notes {
+      display: grid;
+      gap: 12px;
+    }
+
+    .notice-card {
+      padding: 18px;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(180deg, #fff, #f8fafc);
+    }
+
+    .notice-card strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+
+    section {
+      padding: 24px 0;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .section-head p {
+      max-width: 720px;
+      margin: 0;
+    }
+
+    .grid-3,
+    .grid-4,
+    .guide-grid,
+    .faq-grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .grid-4 {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .guide-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .faq-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .category-card,
+    .info-card,
+    .guide-card,
+    .faq-card {
+      padding: 22px;
+      border-radius: var(--radius-lg);
+    }
+
+    .category-card h3,
+    .info-card h3,
+    .guide-card h3,
+    .faq-card h3 {
+      margin-bottom: 10px;
+    }
+
+    .card-kicker {
+      display: inline-block;
+      margin-bottom: 10px;
+      font-size: 0.82rem;
+      font-weight: 800;
+      color: var(--primary);
+      background: #eff6ff;
+      padding: 6px 10px;
+      border-radius: 999px;
+    }
+
+    .card-link {
+      display: inline-flex;
+      margin-top: 10px;
+      align-items: center;
+      gap: 8px;
+      color: var(--primary);
+      font-weight: 800;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .trust-strip {
+      background: linear-gradient(135deg, #0f172a, #1e3a8a);
+      color: #fff;
+      border-radius: var(--radius-xl);
+      padding: 26px;
+      box-shadow: var(--shadow);
+    }
+
+    .trust-strip p,
+    .trust-strip li,
+    .trust-strip a {
+      color: rgba(255, 255, 255, 0.88);
+    }
+
+    .trust-list {
+      margin: 14px 0 0;
+      padding-left: 18px;
+    }
+
+    .faq-item {
+      border-top: 1px solid var(--line);
+      padding: 14px 0;
+    }
+
+    .faq-item:first-child {
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    details summary {
+      list-style: none;
+      cursor: pointer;
+      font-weight: 800;
+      color: var(--text);
+      position: relative;
+      padding-right: 26px;
+    }
+
+    details summary::-webkit-details-marker {
+      display: none;
+    }
+
+    details summary::after {
+      content: "+";
+      position: absolute;
+      right: 0;
+      top: 0;
+      font-size: 1.25rem;
+      line-height: 1;
+      color: var(--primary);
+    }
+
+    details[open] summary::after {
+      content: "−";
+    }
+
+    .cta-box {
+      padding: 28px;
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, #ffffff, #f8fafc);
+      box-shadow: var(--shadow);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .cta-box p {
+      margin: 0;
+      max-width: 720px;
+    }
+
+    footer {
+      margin-top: 24px;
+      border-top: 1px solid var(--line);
+      background: #fff;
+    }
+
+    .footer-inner {
+      padding: 28px 0 42px;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 24px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      justify-content: flex-end;
+    }
+
+    .footer-links a {
+      padding: 10px 12px;
+      border-radius: 12px;
+      color: var(--muted);
+      font-weight: 700;
+      background: var(--surface-soft);
+    }
+
+    .footer-note {
+      font-size: 0.94rem;
+      color: #64748b;
+      margin-top: 10px;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    @media (max-width: 1080px) {
+      .hero-grid,
+      .split,
+      .footer-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .grid-4 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .grid-3,
+      .guide-grid,
+      .faq-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 720px) {
+      .container {
+        width: min(calc(100% - 24px), var(--max));
+      }
+
+      .topbar {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        width: 100%;
+      }
+
+      .hero {
+        padding-top: 24px;
+      }
+
+      .hero-card,
+      .panel,
+      .category-card,
+      .info-card,
+      .guide-card,
+      .faq-card,
+      .notice-card,
+      .cta-box,
+      .trust-strip {
+        padding: 20px;
+      }
+
+      .hero-points,
+      .grid-3,
+      .grid-4,
+      .guide-grid,
+      .faq-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .button-row {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .section-head {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .footer-links {
+        justify-content: flex-start;
+      }
+    }
+  </style>
 </head>
 <body>
-  <h1>Hello, world!</h1>
-  <button onclick="console.log('hello');">Press me</button>
-  <script defer type="text/javascript" src="/main.js"></script>
+  <a class="skip-link" href="#main">본문 바로가기</a>
+
+  <header class="site-header">
+    <div class="container topbar">
+      <a class="brand" href="/">
+        <span class="brand-badge">CG</span>
+        <span>ComplaintGuide</span>
+      </a>
+
+      <nav class="nav-links" aria-label="주요 메뉴">
+        <a href="/search/">민원 찾기</a>
+        <a href="/guides/">상황별 가이드</a>
+        <a href="/faq/">FAQ</a>
+        <a href="/about/">서비스 소개</a>
+        <a class="nav-cta" href="/search/">지금 찾아보기</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-card">
+          <span class="eyebrow">문제 해결형 민원 안내 도우미</span>
+          <h1>어디에 문의해야 할지<br />막막할 때, 먼저 길을 보여드립니다.</h1>
+          <p class="hero-lead">
+            전입신고, 층간소음, 도로 파손, 쓰레기 무단투기, 복지 상담, 소비자 피해까지.
+            생활 속 문제를 입력하면 <strong>문의 가능성이 높은 기관</strong>,
+            <strong>확인해야 할 공식 민원 창구</strong>,
+            <strong>준비물과 유의사항</strong>을 쉽게 정리해드립니다.
+          </p>
+          <p>
+            ComplaintGuide는 <strong>공식 민원 접수 사이트가 아닙니다.</strong>
+            대신 사용자가 적절한 공식 경로로 빠르게 이동할 수 있도록
+            정보를 정리해주는 생활 민원 안내 서비스입니다.
+          </p>
+
+          <div class="button-row" style="margin-top: 18px;">
+            <a class="btn btn-primary" href="/search/">민원 찾기 시작</a>
+            <a class="btn btn-secondary" href="/guides/">상황별 가이드 보기</a>
+          </div>
+
+          <div class="hero-points" aria-label="핵심 기능">
+            <div class="mini-card">
+              <strong>문의처 추천</strong>
+              <span>어디에 먼저 문의해야 할지 빠르게 정리</span>
+            </div>
+            <div class="mini-card">
+              <strong>공식 경로 안내</strong>
+              <span>정부24·국민신문고·기관 사이트 확인 유도</span>
+            </div>
+            <div class="mini-card">
+              <strong>준비물 체크</strong>
+              <span>접수 전 필요한 정보와 확인사항까지 정리</span>
+            </div>
+          </div>
+        </div>
+
+        <aside class="panel" aria-label="빠른 검색 및 안내">
+          <div class="search-box">
+            <h2>무엇이 불편한가요?</h2>
+            <p>
+              상황을 짧게 적어보세요. 예:
+              <strong>“층간소음이 심한데 어디에 신고하나요?”</strong>
+            </p>
+
+            <form class="search-form" action="/search/" method="get">
+              <div class="field">
+                <label for="q">문제 상황</label>
+                <input
+                  id="q"
+                  name="q"
+                  type="text"
+                  placeholder="예: 도로에 큰 포트홀이 생겼어요"
+                  autocomplete="off"
+                />
+              </div>
+
+              <div class="field">
+                <label for="category">민원 유형</label>
+                <select id="category" name="category">
+                  <option value="">유형을 잘 모르겠어요</option>
+                  <option value="moving">전입 · 주민등록</option>
+                  <option value="noise">층간소음 · 생활소음</option>
+                  <option value="road">도로 · 시설물 파손</option>
+                  <option value="waste">쓰레기 · 무단투기</option>
+                  <option value="welfare">복지 · 지원금 상담</option>
+                  <option value="consumer">소비자 피해 · 환불</option>
+                  <option value="traffic">교통 · 불법주정차</option>
+                  <option value="housing">주택 · 관리비 · 공동주택</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="region">지역</label>
+                <input
+                  id="region"
+                  name="region"
+                  type="text"
+                  placeholder="예: 서울 강서구"
+                  autocomplete="address-level2"
+                />
+              </div>
+
+              <div class="button-row">
+                <button class="btn btn-primary" type="submit">문의처 찾기</button>
+                <a class="btn btn-secondary" href="/guides/">가이드 먼저 보기</a>
+              </div>
+            </form>
+
+            <p class="helper-text">
+              입력 내용을 바탕으로 적절한 문의 기관 후보와 공식 창구를 안내합니다.
+              최종 접수 전에는 반드시 공식 사이트에서 다시 확인해 주세요.
+            </p>
+
+            <div class="quick-tags" aria-label="빠른 예시">
+              <button class="tag-btn" type="button" data-query="전입신고는 어디에 문의하나요?">전입신고</button>
+              <button class="tag-btn" type="button" data-query="층간소음은 어디에 신고하나요?">층간소음</button>
+              <button class="tag-btn" type="button" data-query="도로 파손은 어디에 제보하나요?">도로 파손</button>
+              <button class="tag-btn" type="button" data-query="무단투기는 어디에 신고하나요?">무단투기</button>
+              <button class="tag-btn" type="button" data-query="복지 혜택은 어디서 문의하나요?">복지 상담</button>
+              <button class="tag-btn" type="button" data-query="환불 거부는 어디에 상담하나요?">소비자 피해</button>
+            </div>
+          </div>
+
+          <div class="side-notes">
+            <div class="notice-card">
+              <strong>이 사이트가 하는 일</strong>
+              <p>
+                사용자가 자신의 문제를 설명하면, 어떤 기관에 먼저 문의해야 할지
+                이해하기 쉽게 정리해드립니다.
+              </p>
+            </div>
+
+            <div class="notice-card">
+              <strong>이 사이트가 하지 않는 일</strong>
+              <p>
+                ComplaintGuide는 민원을 직접 접수하거나 대신 처리하지 않습니다.
+                실제 신청·상담·신고는 공식 기관 채널에서 진행해야 합니다.
+              </p>
+            </div>
+
+            <div class="notice-card">
+              <strong>이런 분께 특히 유용합니다</strong>
+              <p>
+                정부 서비스가 낯선 분, 민원 초보자, 부모님 대신 알아봐야 하는 분,
+                지역 기관이 헷갈리는 분께 적합합니다.
+              </p>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section aria-labelledby="popular-categories">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2 id="popular-categories">많이 찾는 민원 유형</h2>
+            <p>
+              검색량이 높고 실제로 “어디에 문의해야 하는지” 헷갈리기 쉬운 상황을 중심으로
+              먼저 정리했습니다.
+            </p>
+          </div>
+        </div>
+
+        <div class="grid-4">
+          <article class="category-card">
+            <span class="card-kicker">생활 행정</span>
+            <h3>전입 · 주민등록</h3>
+            <p>전입신고, 주소 변경, 세대 관련 문의를 어디서 시작해야 하는지 안내합니다.</p>
+            <a class="card-link" href="/guides/moving-report-guide.html">가이드 보기 →</a>
+          </article>
+
+          <article class="category-card">
+            <span class="card-kicker">주거 문제</span>
+            <h3>층간소음 · 공동주택</h3>
+            <p>관리사무소, 지자체, 분쟁조정 등 어떤 순서로 확인해야 하는지 설명합니다.</p>
+            <a class="card-link" href="/guides/floor-noise-guide.html">가이드 보기 →</a>
+          </article>
+
+          <article class="category-card">
+            <span class="card-kicker">도시 안전</span>
+            <h3>도로 · 시설물 파손</h3>
+            <p>도로 파손, 가로등 고장, 보도블록 위험 등 생활 안전 민원을 정리합니다.</p>
+            <a class="card-link" href="/guides/road-damage-guide.html">가이드 보기 →</a>
+          </article>
+
+          <article class="category-card">
+            <span class="card-kicker">환경 민원</span>
+            <h3>쓰레기 · 무단투기</h3>
+            <p>생활폐기물, 무단투기, 청소행정 관련 문의 흐름과 확인 포인트를 안내합니다.</p>
+            <a class="card-link" href="/guides/illegal-dumping-guide.html">가이드 보기 →</a>
+          </article>
+
+          <article class="category-card">
+            <span class="card-kicker">복지 상담</span>
+            <h3>복지 · 지원금</h3>
+            <p>내가 받을 수 있는 지원이 있는지 어디서 문의를 시작해야 할지 정리합니다.</p>
+            <a class="card-link" href="/guides/welfare-help-guide.html">가이드 보기 →</a>
+          </article>
+
+          <article class="category-card">
+            <span class="card-kicker">소비자 보호</span>
+            <h3>환불 · 소비자 피해</h3>
+            <p>판매자와 분쟁이 생겼을 때 어떤 기관이나 상담 채널을 먼저 확인해야 하는지 소개합니다.</p>
+            <a class="card-link" href="/guides/consumer-complaint-guide.html">가이드 보기 →</a>
+          </article>
+
+          <article class="category-card">
+            <span class="card-kicker">교통 불편</span>
+            <h3>불법주정차 · 교통 불편</h3>
+            <p>지역 민원과 안전 관련 신고를 구분해서 접근할 수 있도록 돕습니다.</p>
+            <a class="card-link" href="/search/?category=traffic">문의처 찾기 →</a>
+          </article>
+
+          <article class="category-card">
+            <span class="card-kicker">주거 생활</span>
+            <h3>관리비 · 하자 · 생활 불편</h3>
+            <p>공동주택, 임대주택, 생활 시설 문의 등 헷갈리는 주거 민원 흐름을 안내합니다.</p>
+            <a class="card-link" href="/search/?category=housing">문의처 찾기 →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="how-it-works">
+      <div class="container split">
+        <div class="info-card">
+          <h2 id="how-it-works">ComplaintGuide는 이렇게 도와줍니다</h2>
+          <p>
+            생활 속 문제는 비슷해 보여도 문의 기관이 서로 다를 수 있습니다.
+            ComplaintGuide는 문제 설명과 카테고리, 지역 정보를 바탕으로
+            문의 방향을 먼저 잡아주는 역할을 합니다.
+          </p>
+
+          <div class="faq-item">
+            <h3>1. 문제를 쉽게 입력</h3>
+            <p>“어디에 신고해야 하지?” 수준의 짧은 문장만 입력해도 시작할 수 있습니다.</p>
+          </div>
+
+          <div class="faq-item">
+            <h3>2. 문의 가능 기관 추천</h3>
+            <p>입력 내용을 토대로 적절할 가능성이 높은 기관과 공식 경로 후보를 보여줍니다.</p>
+          </div>
+
+          <div class="faq-item">
+            <h3>3. 준비물과 확인사항 정리</h3>
+            <p>사진, 주소, 발생 시간, 계약 정보처럼 민원 전에 챙기면 좋은 항목을 알려드립니다.</p>
+          </div>
+
+          <div class="faq-item">
+            <h3>4. 공식 사이트로 이동</h3>
+            <p>최종 접수와 상담은 정부24, 국민신문고, 해당 기관 공식 홈페이지 등에서 진행하도록 안내합니다.</p>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <h2>왜 이런 서비스가 필요한가요?</h2>
+          <p>
+            많은 사용자가 문제 자체보다도
+            <strong>“이걸 어디에 물어봐야 하지?”</strong>에서 시간을 가장 많이 씁니다.
+            기관 이름이 낯설고, 지자체와 중앙기관의 역할 구분이 어렵기 때문입니다.
+          </p>
+          <p>
+            그래서 이 사이트는 단순 검색창이 아니라,
+            <strong>생활 문제를 공식 문의 경로로 연결하는 안내 허브</strong>를 목표로 합니다.
+          </p>
+
+          <div class="faq-item">
+            <h3>이런 상황에서 유용합니다</h3>
+            <p>처음 겪는 민원, 부모님이나 가족 대신 알아봐야 하는 민원, 이사·주거·생활불편처럼 지역별로 달라지는 문의에 적합합니다.</p>
+          </div>
+
+          <div class="faq-item">
+            <h3>이용 전 알아둘 점</h3>
+            <p>민원 처리 기준과 접수 경로는 지역과 상황에 따라 달라질 수 있으므로, 결과는 안내용으로 참고하고 최종 내용은 공식 기관에서 다시 확인해야 합니다.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="featured-guides">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2 id="featured-guides">상황별 민원 가이드</h2>
+            <p>
+              검색 유입과 실제 도움을 모두 고려해, 자주 찾는 문제를
+              상세 가이드 문서로 따로 정리했습니다.
+            </p>
+          </div>
+          <a class="card-link" href="/guides/">전체 가이드 보기 →</a>
+        </div>
+
+        <div class="guide-grid">
+          <article class="guide-card">
+            <span class="card-kicker">가이드 01</span>
+            <h3>전입신고는 어디에 문의하나요?</h3>
+            <p>
+              주민등록 주소 변경이 필요한 상황에서 어디서 시작해야 하는지,
+              미리 준비하면 좋은 항목까지 쉽게 정리합니다.
+            </p>
+            <a class="card-link" href="/guides/moving-report-guide.html">자세히 보기 →</a>
+          </article>
+
+          <article class="guide-card">
+            <span class="card-kicker">가이드 02</span>
+            <h3>층간소음은 어디에 신고하나요?</h3>
+            <p>
+              관리사무소, 당사자 협의, 지자체, 분쟁조정 등
+              상황별 접근 순서를 초보자도 이해하기 쉽게 설명합니다.
+            </p>
+            <a class="card-link" href="/guides/floor-noise-guide.html">자세히 보기 →</a>
+          </article>
+
+          <article class="guide-card">
+            <span class="card-kicker">가이드 03</span>
+            <h3>도로 파손은 어디에 제보하나요?</h3>
+            <p>
+              포트홀, 보도블록 파손, 시설물 위험처럼
+              즉시 알리면 좋은 생활 안전 문제의 문의 흐름을 안내합니다.
+            </p>
+            <a class="card-link" href="/guides/road-damage-guide.html">자세히 보기 →</a>
+          </article>
+
+          <article class="guide-card">
+            <span class="card-kicker">가이드 04</span>
+            <h3>쓰레기 무단투기는 어디에 신고하나요?</h3>
+            <p>
+              생활폐기물, 무단투기, 청소행정 민원을
+              지역 행정과 연결해서 이해하기 쉽게 정리합니다.
+            </p>
+            <a class="card-link" href="/guides/illegal-dumping-guide.html">자세히 보기 →</a>
+          </article>
+
+          <article class="guide-card">
+            <span class="card-kicker">가이드 05</span>
+            <h3>복지 혜택은 어디서 문의를 시작하나요?</h3>
+            <p>
+              내가 받을 수 있는 제도를 어디서 먼저 확인하면 좋은지,
+              상담 시작점과 준비 정보를 중심으로 정리합니다.
+            </p>
+            <a class="card-link" href="/guides/welfare-help-guide.html">자세히 보기 →</a>
+          </article>
+
+          <article class="guide-card">
+            <span class="card-kicker">가이드 06</span>
+            <h3>소비자 피해는 어디에 상담하나요?</h3>
+            <p>
+              환불 거부, 서비스 불이행, 구매 분쟁처럼
+              일상에서 자주 겪는 소비자 문제의 상담 흐름을 안내합니다.
+            </p>
+            <a class="card-link" href="/guides/consumer-complaint-guide.html">자세히 보기 →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="trust-notice">
+      <div class="container">
+        <div class="trust-strip">
+          <h2 id="trust-notice">중요 안내</h2>
+          <p>
+            ComplaintGuide는 사용자가 적절한 공식 경로를 찾도록 돕는
+            <strong>정보형 안내 서비스</strong>입니다.
+            이 사이트는 정부기관이 아니며, 민원을 직접 접수하거나 처리하지 않습니다.
+          </p>
+          <ul class="trust-list">
+            <li>최종 신청·신고·상담은 반드시 공식 기관 또는 공식 홈페이지에서 진행해 주세요.</li>
+            <li>지역별 제도와 절차가 다를 수 있으므로, 접수 전 최신 정보를 다시 확인해 주세요.</li>
+            <li>검색 결과는 이해를 돕기 위한 추천 안내이며, 법적 효력을 대신하지 않습니다.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="faq-preview">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2 id="faq-preview">자주 묻는 질문</h2>
+            <p>
+              사용자가 가장 많이 궁금해하는 핵심 질문만 먼저 정리했습니다.
+              자세한 내용은 FAQ 페이지에서 더 볼 수 있습니다.
+            </p>
+          </div>
+          <a class="card-link" href="/faq/">FAQ 전체 보기 →</a>
+        </div>
+
+        <div class="faq-grid">
+          <div class="faq-card">
+            <div class="faq-item">
+              <details open>
+                <summary>이 사이트에서 민원을 바로 접수할 수 있나요?</summary>
+                <p>
+                  아닙니다. 이 사이트는 문제 상황에 맞는 문의 기관과 공식 경로를 안내하는 역할을 합니다.
+                  실제 접수는 공식 채널에서 진행해야 합니다.
+                </p>
+              </details>
+            </div>
+            <div class="faq-item">
+              <details>
+                <summary>결과가 100% 정확한가요?</summary>
+                <p>
+                  생활 민원은 지역과 상황에 따라 경로가 달라질 수 있습니다.
+                  따라서 결과는 시작점 안내로 참고하고, 공식 기관에서 최종 확인이 필요합니다.
+                </p>
+              </details>
+            </div>
+            <div class="faq-item">
+              <details>
+                <summary>지역 정보를 입력하면 무엇이 달라지나요?</summary>
+                <p>
+                  같은 문제라도 담당 기관이나 세부 접수 흐름이 지역에 따라 달라질 수 있어,
+                  더 현실적인 안내를 위해 지역 입력을 받습니다.
+                </p>
+              </details>
+            </div>
+          </div>
+
+          <div class="faq-card">
+            <div class="faq-item">
+              <details open>
+                <summary>어떤 문제를 입력할 수 있나요?</summary>
+                <p>
+                  전입, 소음, 도로 파손, 무단투기, 복지 상담, 소비자 피해처럼
+                  생활 속에서 자주 겪는 행정·상담성 민원을 중심으로 입력할 수 있습니다.
+                </p>
+              </details>
+            </div>
+            <div class="faq-item">
+              <details>
+                <summary>공식 기관 링크도 함께 제공되나요?</summary>
+                <p>
+                  네. 가능한 경우 관련 공식 사이트나 공식 민원 창구로 이동할 수 있도록 안내하는 구조로 설계합니다.
+                </p>
+              </details>
+            </div>
+            <div class="faq-item">
+              <details>
+                <summary>부모님이나 가족 대신 알아볼 때도 도움이 되나요?</summary>
+                <p>
+                  그렇습니다. 특히 정부 서비스에 익숙하지 않은 가족을 대신해
+                  문의 시작점을 정리할 때 유용하도록 구성하고 있습니다.
+                </p>
+              </details>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="helpful-links">
+      <div class="container">
+        <div class="cta-box">
+          <div>
+            <h2 id="helpful-links">지금 바로 문제 상황을 입력해보세요</h2>
+            <p>
+              막연하게 검색어만 반복하지 말고, 지금 겪는 문제를 그대로 적어보세요.
+              ComplaintGuide가 문의처 탐색의 첫 단계를 도와드립니다.
+            </p>
+          </div>
+          <div class="button-row">
+            <a class="btn btn-primary" href="/search/">민원 찾기 시작</a>
+            <a class="btn btn-secondary" href="/guides/">가이드 먼저 읽기</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div>
+        <a class="brand" href="/">
+          <span class="brand-badge">CG</span>
+          <span>ComplaintGuide</span>
+        </a>
+        <p class="footer-note">
+          ComplaintGuide는 생활 속 문제 상황에서 적절한 문의 기관과 공식 민원 경로를
+          이해하기 쉽게 안내하는 정보형 서비스입니다.
+          본 사이트는 정부기관이 아니며, 공식 접수는 해당 기관의 공식 채널에서 진행해야 합니다.
+        </p>
+      </div>
+
+      <nav class="footer-links" aria-label="푸터 메뉴">
+        <a href="/about/">About</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/terms/">Terms</a>
+        <a href="/contact/">Contact</a>
+        <a href="/faq/">FAQ</a>
+        <a href="/guides/">Guides</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const queryInput = document.getElementById("q");
+      const tagButtons = document.querySelectorAll(".tag-btn");
+
+      tagButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const query = button.getAttribute("data-query") || "";
+          queryInput.value = query;
+          queryInput.focus();
+          queryInput.scrollIntoView({ behavior: "smooth", block: "center" });
+        });
+      });
+    })();
+  </script>
 </body>
 </html>

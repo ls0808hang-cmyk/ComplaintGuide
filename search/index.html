@@ -1,0 +1,1434 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>민원 문의처 찾기 | ComplaintGuide</title>
+  <meta
+    name="description"
+    content="문제 상황과 지역을 입력하면 어디에 문의해야 하는지, 어떤 공식 민원 창구를 확인해야 하는지, 준비물과 주의사항까지 안내하는 민원 문의처 찾기 페이지입니다."
+  />
+  <meta
+    name="keywords"
+    content="민원 문의처 찾기, 어디에 문의, 어디에 신고, 민원 안내, 국민신문고, 정부24, 복지로, 소비자24"
+  />
+  <meta name="robots" content="index,follow" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="민원 문의처 찾기 | ComplaintGuide" />
+  <meta
+    property="og:description"
+    content="생활 속 문제를 입력하면 문의 기관, 공식 민원 창구, 준비물, 확인사항을 한 번에 안내합니다."
+  />
+  <meta property="og:locale" content="ko_KR" />
+  <meta name="theme-color" content="#0f172a" />
+
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --surface-soft: #f1f5f9;
+      --line: #e2e8f0;
+      --text: #0f172a;
+      --muted: #475569;
+      --primary: #1d4ed8;
+      --primary-dark: #1e3a8a;
+      --accent: #0f766e;
+      --good: #065f46;
+      --warn: #9a3412;
+      --danger: #991b1b;
+      --shadow: 0 14px 40px rgba(15, 23, 42, 0.08);
+      --radius-xl: 24px;
+      --radius-lg: 18px;
+      --radius-md: 14px;
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: "Pretendard", "Noto Sans KR", "Apple SD Gothic Neo", Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(29, 78, 216, 0.06), transparent 28%),
+        radial-gradient(circle at top right, rgba(15, 118, 110, 0.05), transparent 22%),
+        var(--bg);
+      line-height: 1.65;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: -9999px;
+      top: auto;
+    }
+
+    .skip-link:focus {
+      left: 16px;
+      top: 16px;
+      background: #fff;
+      color: #000;
+      padding: 10px 14px;
+      border-radius: 10px;
+      z-index: 1000;
+      box-shadow: var(--shadow);
+    }
+
+    header.site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(10px);
+      background: rgba(248, 250, 252, 0.86);
+      border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 14px 0;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      font-size: 1.08rem;
+      color: var(--text);
+      letter-spacing: -0.02em;
+    }
+
+    .brand-badge {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: #fff;
+      font-weight: 900;
+      box-shadow: var(--shadow);
+      flex-shrink: 0;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      padding: 10px 14px;
+      border-radius: 999px;
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      background: var(--surface);
+      color: var(--text);
+      outline: none;
+    }
+
+    .nav-cta {
+      background: var(--primary);
+      color: #fff !important;
+      box-shadow: var(--shadow);
+    }
+
+    .hero {
+      padding: 30px 0 20px;
+    }
+
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      color: #64748b;
+      font-size: 0.92rem;
+      margin-bottom: 14px;
+    }
+
+    .breadcrumb a { color: #64748b; }
+    .breadcrumb span[aria-hidden="true"] { opacity: 0.65; }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .panel,
+    .search-panel,
+    .result-panel,
+    .card,
+    .mini-card,
+    .guide-card,
+    .empty-card,
+    .notice-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+    }
+
+    .search-panel,
+    .result-panel {
+      padding: 28px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: #dbeafe;
+      color: var(--primary-dark);
+      font-size: 0.9rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    h1, h2, h3, h4 {
+      line-height: 1.22;
+      letter-spacing: -0.03em;
+      margin: 0 0 14px;
+    }
+
+    h1 { font-size: clamp(1.9rem, 4vw, 3rem); }
+    h2 { font-size: clamp(1.4rem, 2.3vw, 2rem); }
+    h3 { font-size: 1.1rem; }
+    h4 { font-size: 1rem; }
+
+    p {
+      margin: 0 0 14px;
+      color: var(--muted);
+    }
+
+    .lead {
+      font-size: 1.05rem;
+    }
+
+    .search-form {
+      display: grid;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .field label {
+      display: block;
+      font-size: 0.92rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      padding: 15px 16px;
+      border: 1px solid #cbd5e1;
+      border-radius: 14px;
+      font-size: 1rem;
+      color: var(--text);
+      background: #fff;
+      font-family: inherit;
+    }
+
+    .field textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      outline: 2px solid rgba(29, 78, 216, 0.15);
+      border-color: var(--primary);
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .button-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 4px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 48px;
+      padding: 0 18px;
+      border-radius: 14px;
+      border: 0;
+      cursor: pointer;
+      font-size: 0.98rem;
+      font-weight: 800;
+      transition: transform 0.15s ease, opacity 0.15s ease;
+      font-family: inherit;
+    }
+
+    .btn:hover { transform: translateY(-1px); }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    .btn-secondary {
+      background: #e2e8f0;
+      color: var(--text);
+    }
+
+    .btn-ghost {
+      background: #fff;
+      color: var(--text);
+      border: 1px solid var(--line);
+    }
+
+    .helper-text {
+      font-size: 0.92rem;
+      color: #64748b;
+      margin-top: 8px;
+    }
+
+    .chips {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    .chip {
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--text);
+      border-radius: 999px;
+      padding: 9px 12px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .chip:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    .notice-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .notice-card {
+      padding: 16px;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(180deg, #fff, #f8fafc);
+    }
+
+    .notice-card strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+
+    .result-header {
+      display: flex;
+      align-items: start;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+
+    .result-header p {
+      margin: 0;
+    }
+
+    .result-count {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: #eff6ff;
+      color: var(--primary-dark);
+      font-weight: 800;
+      font-size: 0.92rem;
+    }
+
+    .result-list {
+      display: grid;
+      gap: 16px;
+    }
+
+    .result-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 22px;
+      background: linear-gradient(180deg, #ffffff, #fbfdff);
+    }
+
+    .result-top {
+      display: flex;
+      align-items: start;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+
+    .score-badge,
+    .type-badge,
+    .agency-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border-radius: 999px;
+      padding: 7px 11px;
+      font-size: 0.84rem;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .score-high {
+      background: #dcfce7;
+      color: var(--good);
+    }
+
+    .score-mid {
+      background: #fef3c7;
+      color: #92400e;
+    }
+
+    .type-badge {
+      background: #e0f2fe;
+      color: #075985;
+    }
+
+    .agency-badge {
+      background: #ede9fe;
+      color: #5b21b6;
+    }
+
+    .why-box,
+    .list-box,
+    .map-box,
+    .trust-box,
+    .tip-box,
+    .related-guides {
+      margin-top: 16px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 16px;
+      background: var(--surface-soft);
+    }
+
+    .why-box p,
+    .list-box p,
+    .map-box p,
+    .trust-box p,
+    .tip-box p,
+    .related-guides p {
+      margin-bottom: 10px;
+    }
+
+    ul.clean-list {
+      margin: 10px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
+    .link-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+    }
+
+    .link-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0 14px;
+      border-radius: 12px;
+      font-weight: 800;
+      font-size: 0.94rem;
+      border: 1px solid var(--line);
+      background: #fff;
+    }
+
+    .link-btn.primary {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }
+
+    .map-placeholder {
+      min-height: 170px;
+      border: 1px dashed #94a3b8;
+      border-radius: 14px;
+      background:
+        linear-gradient(180deg, rgba(29, 78, 216, 0.04), rgba(15, 118, 110, 0.04)),
+        #fff;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 18px;
+      color: #475569;
+      font-weight: 700;
+    }
+
+    .section {
+      padding: 10px 0 26px;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+    }
+
+    .section-head p {
+      max-width: 760px;
+      margin: 0;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .guide-card,
+    .card,
+    .empty-card {
+      padding: 22px;
+      border-radius: var(--radius-lg);
+    }
+
+    .card-kicker {
+      display: inline-block;
+      margin-bottom: 10px;
+      font-size: 0.82rem;
+      font-weight: 800;
+      color: var(--primary);
+      background: #eff6ff;
+      padding: 6px 10px;
+      border-radius: 999px;
+    }
+
+    .card-link {
+      display: inline-flex;
+      margin-top: 10px;
+      align-items: center;
+      gap: 8px;
+      color: var(--primary);
+      font-weight: 800;
+    }
+
+    .empty-card {
+      text-align: center;
+      padding: 28px;
+      display: none;
+    }
+
+    .empty-card.show {
+      display: block;
+    }
+
+    .trust-box {
+      background: linear-gradient(135deg, #0f172a, #1e3a8a);
+      color: #fff;
+      border: none;
+    }
+
+    .trust-box p,
+    .trust-box li {
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    footer {
+      margin-top: 24px;
+      border-top: 1px solid var(--line);
+      background: #fff;
+    }
+
+    .footer-inner {
+      padding: 28px 0 42px;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 24px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      justify-content: flex-end;
+    }
+
+    .footer-links a {
+      padding: 10px 12px;
+      border-radius: 12px;
+      color: var(--muted);
+      font-weight: 700;
+      background: var(--surface-soft);
+    }
+
+    .footer-note {
+      font-size: 0.94rem;
+      color: #64748b;
+      margin-top: 10px;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    @media (max-width: 1080px) {
+      .hero-grid,
+      .footer-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .grid-3 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 760px) {
+      .container {
+        width: min(calc(100% - 24px), var(--max));
+      }
+
+      .topbar {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        width: 100%;
+      }
+
+      .search-panel,
+      .result-panel,
+      .card,
+      .guide-card,
+      .empty-card,
+      .trust-box {
+        padding: 20px;
+      }
+
+      .two-col,
+      .grid-3 {
+        grid-template-columns: 1fr;
+      }
+
+      .button-row {
+        flex-direction: column;
+      }
+
+      .btn,
+      .link-btn {
+        width: 100%;
+      }
+
+      .footer-links {
+        justify-content: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">본문 바로가기</a>
+
+  <header class="site-header">
+    <div class="container topbar">
+      <a class="brand" href="/">
+        <span class="brand-badge">CG</span>
+        <span>ComplaintGuide</span>
+      </a>
+
+      <nav class="nav-links" aria-label="주요 메뉴">
+        <a href="/">홈</a>
+        <a href="/guides/">상황별 가이드</a>
+        <a href="/faq/">FAQ</a>
+        <a href="/about/">서비스 소개</a>
+        <a class="nav-cta" href="/search/">민원 찾기</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="/">홈</a>
+          <span aria-hidden="true">/</span>
+          <span>민원 문의처 찾기</span>
+        </nav>
+
+        <div class="hero-grid">
+          <section class="search-panel" aria-labelledby="search-title">
+            <span class="eyebrow">문제 해결형 민원 검색</span>
+            <h1 id="search-title">내 상황에 맞는<br />문의처를 먼저 찾아보세요</h1>
+            <p class="lead">
+              문제를 자연스럽게 적으면, <strong>문의 가능성이 높은 기관</strong>,
+              <strong>확인해야 할 공식 창구</strong>,
+              <strong>준비물과 유의사항</strong>을 함께 보여드립니다.
+            </p>
+            <p>
+              이 페이지는 민원을 대신 접수하지 않습니다.
+              대신 어디서부터 시작해야 할지 막막한 사용자를 위해
+              <strong>공식 경로를 찾는 첫 단계</strong>를 안내합니다.
+            </p>
+
+            <form id="searchForm" class="search-form">
+              <div class="field">
+                <label for="q">문제 상황</label>
+                <textarea
+                  id="q"
+                  name="q"
+                  placeholder="예: 아파트 위층 소음이 밤마다 심한데 어디에 문의해야 하나요?"
+                ></textarea>
+              </div>
+
+              <div class="two-col">
+                <div class="field">
+                  <label for="category">민원 유형</label>
+                  <select id="category" name="category">
+                    <option value="">유형을 잘 모르겠어요</option>
+                    <option value="moving">전입 · 주민등록</option>
+                    <option value="noise">층간소음 · 생활소음</option>
+                    <option value="road">도로 · 시설물 파손</option>
+                    <option value="waste">쓰레기 · 무단투기</option>
+                    <option value="welfare">복지 · 지원금 상담</option>
+                    <option value="consumer">소비자 피해 · 환불</option>
+                    <option value="traffic">교통 · 불법주정차</option>
+                    <option value="housing">주택 · 관리비 · 하자</option>
+                  </select>
+                </div>
+
+                <div class="field">
+                  <label for="region">지역</label>
+                  <input
+                    id="region"
+                    name="region"
+                    type="text"
+                    placeholder="예: 서울 강서구"
+                    autocomplete="address-level2"
+                  />
+                </div>
+              </div>
+
+              <div class="button-row">
+                <button class="btn btn-primary" type="submit">문의처 찾기</button>
+                <button class="btn btn-secondary" type="button" id="resetButton">초기화</button>
+              </div>
+
+              <p class="helper-text">
+                입력한 내용은 브라우저 안에서만 분석하는 예시 버전입니다.
+                나중에 챗봇 API와 공공데이터, 지도 API를 붙이면 더 정확하게 확장할 수 있습니다.
+              </p>
+            </form>
+
+            <div class="chips" aria-label="빠른 예시">
+              <button class="chip" type="button" data-query="전입신고는 어디에 문의하나요?" data-category="moving">전입신고</button>
+              <button class="chip" type="button" data-query="층간소음은 어디에 신고하나요?" data-category="noise">층간소음</button>
+              <button class="chip" type="button" data-query="도로에 큰 포트홀이 생겼어요" data-category="road">도로 파손</button>
+              <button class="chip" type="button" data-query="집 앞에 쓰레기 무단투기가 반복돼요" data-category="waste">무단투기</button>
+              <button class="chip" type="button" data-query="복지 혜택이 있는지 어디서 물어보나요?" data-category="welfare">복지 상담</button>
+              <button class="chip" type="button" data-query="쇼핑몰이 환불을 거부해요" data-category="consumer">소비자 피해</button>
+            </div>
+
+            <div class="notice-list">
+              <div class="notice-card">
+                <strong>추천 결과는 시작점 안내입니다</strong>
+                <p>민원 경로는 지역과 상황에 따라 달라질 수 있으므로, 최종 접수 전에 공식 사이트에서 다시 확인해야 합니다.</p>
+              </div>
+              <div class="notice-card">
+                <strong>공식 접수는 공식 채널에서</strong>
+                <p>정부24, 국민신문고, 복지로, 소비자24 등 공식 사이트 이동 버튼을 함께 제공합니다.</p>
+              </div>
+            </div>
+          </section>
+
+          <section class="result-panel" aria-labelledby="result-title">
+            <div class="result-header">
+              <div>
+                <h2 id="result-title">추천 결과</h2>
+                <p id="resultSummary">문제 상황을 입력하면 이곳에 추천 문의처가 표시됩니다.</p>
+              </div>
+              <div class="result-count" id="resultCount">대기 중</div>
+            </div>
+
+            <div class="trust-box" style="margin-bottom: 16px;">
+              <h3>중요 안내</h3>
+              <p>
+                ComplaintGuide는 <strong>공식 민원 접수 사이트가 아닙니다.</strong>
+                본 결과는 적절한 문의 방향을 잡기 위한 안내용 추천입니다.
+                실제 민원 접수와 상담은 공식 기관에서 진행해 주세요.
+              </p>
+            </div>
+
+            <div id="emptyState" class="empty-card show">
+              <h3>아직 검색된 결과가 없습니다</h3>
+              <p>
+                위 입력창에 문제를 적고 <strong>문의처 찾기</strong>를 누르면,
+                문의 가능성이 높은 기관과 준비물, 유의사항을 한 번에 정리해드립니다.
+              </p>
+            </div>
+
+            <div id="resultList" class="result-list" aria-live="polite"></div>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="guide-links">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2 id="guide-links">자주 찾는 상황별 가이드</h2>
+            <p>
+              검색하기 전에 대표적인 민원 흐름을 먼저 읽어보면,
+              어떤 키워드로 문의해야 하는지 훨씬 쉽게 감이 잡힙니다.
+            </p>
+          </div>
+          <a class="card-link" href="/guides/">전체 가이드 보기 →</a>
+        </div>
+
+        <div class="grid-3">
+          <article class="guide-card">
+            <span class="card-kicker">가이드</span>
+            <h3>전입신고는 어디에 문의하나요?</h3>
+            <p>이사 후 주민등록 주소 변경이 필요한 상황에서 어디서 시작해야 하는지 정리합니다.</p>
+            <a class="card-link" href="/guides/moving-report-guide.html">가이드 보기 →</a>
+          </article>
+
+          <article class="guide-card">
+            <span class="card-kicker">가이드</span>
+            <h3>층간소음은 어디에 신고하나요?</h3>
+            <p>관리사무소, 지자체, 상담·조정 흐름을 순서대로 이해하기 쉽게 풀어드립니다.</p>
+            <a class="card-link" href="/guides/floor-noise-guide.html">가이드 보기 →</a>
+          </article>
+
+          <article class="guide-card">
+            <span class="card-kicker">가이드</span>
+            <h3>도로 파손은 어디에 제보하나요?</h3>
+            <p>생활 안전과 연결되는 시설물 파손 문제의 기본 문의 경로를 정리합니다.</p>
+            <a class="card-link" href="/guides/road-damage-guide.html">가이드 보기 →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div>
+        <a class="brand" href="/">
+          <span class="brand-badge">CG</span>
+          <span>ComplaintGuide</span>
+        </a>
+        <p class="footer-note">
+          ComplaintGuide는 생활 속 문제 상황에서 적절한 문의 기관과 공식 민원 경로를
+          이해하기 쉽게 안내하는 정보형 서비스입니다.
+          본 사이트는 정부기관이 아니며, 공식 접수는 해당 기관의 공식 채널에서 진행해야 합니다.
+        </p>
+      </div>
+
+      <nav class="footer-links" aria-label="푸터 메뉴">
+        <a href="/about/">About</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/terms/">Terms</a>
+        <a href="/contact/">Contact</a>
+        <a href="/faq/">FAQ</a>
+        <a href="/guides/">Guides</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    const complaintsData = [
+      {
+        id: "moving",
+        typeLabel: "전입 · 주민등록",
+        title: "전입신고 · 주소 변경 문의",
+        agency: "주민센터 · 정부24",
+        category: "moving",
+        keywords: ["전입", "전입신고", "주소변경", "주민등록", "이사", "세대주", "전출", "거주지"],
+        summary: "이사 후 주민등록 주소 변경이나 전입신고는 보통 주민센터나 정부24에서 시작하는 경우가 많습니다.",
+        why: [
+          "입력 내용에 이사, 전입, 주소 변경, 주민등록 관련 표현이 포함되어 있습니다.",
+          "이 유형은 생활 민원 중에서도 행정 서비스 성격이 강해 주민센터 또는 정부24에서 시작하는 경우가 많습니다."
+        ],
+        officialUrl: "https://plus.gov.kr",
+        officialLabel: "정부24 바로가기",
+        backupUrl: "https://www.epeople.go.kr",
+        backupLabel: "국민신문고 바로가기",
+        documents: ["신분 확인 정보", "새 주소 정보", "이사 날짜", "세대 구성 관련 확인사항"],
+        cautions: [
+          "상세 절차는 신청 대상과 상황에 따라 달라질 수 있습니다.",
+          "온라인 신청 가능 여부와 처리 조건은 공식 사이트에서 다시 확인하세요."
+        ],
+        faq: [
+          { q: "주민센터 방문 전 무엇을 확인하면 좋나요?", a: "새 주소와 이사일, 세대 관련 정보처럼 기본 사실관계를 먼저 정리해두는 것이 좋습니다." },
+          { q: "온라인으로도 가능한가요?", a: "일부 서비스는 온라인에서 시작할 수 있으므로 정부24 공식 안내를 확인해 보세요." }
+        ],
+        guideUrl: "/guides/moving-report-guide.html",
+        guideTitle: "전입신고 가이드"
+      },
+      {
+        id: "noise",
+        typeLabel: "층간소음 · 생활소음",
+        title: "층간소음 · 생활소음 문의",
+        agency: "관리사무소 · 지자체 · 국민신문고",
+        category: "noise",
+        keywords: ["층간소음", "소음", "윗집", "아랫집", "쿵쿵", "진동", "생활소음", "아파트", "공동주택"],
+        summary: "공동주택 내 생활소음은 관리사무소나 지자체 민원 창구부터 확인하는 경우가 많습니다.",
+        why: [
+          "입력 문장에 소음, 층간, 아파트, 윗집 같은 공동주택 생활 불편 키워드가 포함되어 있습니다.",
+          "즉시 신고보다 현장 상황과 관리 주체를 먼저 구분하는 것이 중요합니다."
+        ],
+        officialUrl: "https://www.epeople.go.kr",
+        officialLabel: "국민신문고 바로가기",
+        backupUrl: "https://plus.gov.kr",
+        backupLabel: "정부24 바로가기",
+        documents: ["소음 발생 시간대 메모", "반복 횟수 기록", "가능하면 사진·녹음 등 참고 자료", "정확한 주소 또는 동·호수 정보"],
+        cautions: [
+          "감정적 대립보다 기록 정리가 먼저입니다.",
+          "즉시 위험 상황이 아니라면 관리 주체와 상담 흐름을 먼저 확인하세요."
+        ],
+        faq: [
+          { q: "바로 신고부터 해야 하나요?", a: "상황에 따라 관리사무소나 당사자 협의, 상담·조정 흐름을 먼저 보는 편이 현실적일 수 있습니다." },
+          { q: "어떤 자료가 도움이 되나요?", a: "발생 시간, 빈도, 유형 같은 기록이 있으면 설명이 쉬워집니다." }
+        ],
+        guideUrl: "/guides/floor-noise-guide.html",
+        guideTitle: "층간소음 가이드"
+      },
+      {
+        id: "road",
+        typeLabel: "도로 · 시설물 파손",
+        title: "도로 파손 · 시설물 위험 제보",
+        agency: "지자체 · 도로관리부서 · 국민신문고",
+        category: "road",
+        keywords: ["도로", "포트홀", "파손", "보도블록", "가로등", "맨홀", "시설물", "안전", "위험", "인도"],
+        summary: "도로나 시설물 파손은 위치 정보가 매우 중요하며, 지자체 민원 창구가 국민신문고로 연결되는 경우가 많습니다.",
+        why: [
+          "입력 내용에 도로, 파손, 위험, 보도블록, 가로등 같은 생활 안전 키워드가 포함되어 있습니다.",
+          "이 유형은 정확한 위치 전달이 핵심입니다."
+        ],
+        officialUrl: "https://www.epeople.go.kr",
+        officialLabel: "국민신문고 바로가기",
+        backupUrl: "https://plus.gov.kr",
+        backupLabel: "정부24 바로가기",
+        documents: ["정확한 위치", "사진", "발견 시간", "위험 정도 메모"],
+        cautions: [
+          "사고 위험이 높다면 우선 현장 안전 확보가 중요합니다.",
+          "사진과 위치 설명이 있으면 접수 단계에서 훨씬 유리합니다."
+        ],
+        faq: [
+          { q: "주소를 정확히 몰라도 되나요?", a: "근처 건물명, 도로명, 지도 캡처 등 위치를 좁힐 수 있는 정보가 있으면 좋습니다." },
+          { q: "사진이 꼭 필요한가요?", a: "필수는 아니지만, 현장 상태 전달에 큰 도움이 됩니다." }
+        ],
+        guideUrl: "/guides/road-damage-guide.html",
+        guideTitle: "도로 파손 가이드"
+      },
+      {
+        id: "waste",
+        typeLabel: "쓰레기 · 무단투기",
+        title: "쓰레기 무단투기 · 청소행정 문의",
+        agency: "지자체 청소행정 부서 · 국민신문고",
+        category: "waste",
+        keywords: ["쓰레기", "무단투기", "폐기물", "분리수거", "악취", "청소", "불법투기", "생활폐기물"],
+        summary: "생활폐기물이나 무단투기 관련 불편은 보통 지역 청소행정 부서와 연결되는 경우가 많습니다.",
+        why: [
+          "입력 내용에 쓰레기, 폐기물, 무단투기, 분리수거 관련 키워드가 포함되어 있습니다.",
+          "지역별 처리 기준과 담당 부서가 달라질 수 있어 지역 정보가 특히 중요합니다."
+        ],
+        officialUrl: "https://www.epeople.go.kr",
+        officialLabel: "국민신문고 바로가기",
+        backupUrl: "https://plus.gov.kr",
+        backupLabel: "정부24 바로가기",
+        documents: ["발생 위치", "반복 여부", "사진", "발견 시간대"],
+        cautions: [
+          "사유지와 공공장소인지에 따라 처리 주체가 달라질 수 있습니다.",
+          "반복 발생이라면 날짜별 기록을 남겨두는 것이 좋습니다."
+        ],
+        faq: [
+          { q: "한 번 발생한 것도 문의할 수 있나요?", a: "가능하지만 반복성, 위치, 주변 상황을 함께 정리하면 설명이 쉬워집니다." },
+          { q: "사진이 없으면 안 되나요?", a: "없어도 문의는 가능하지만, 위치와 상황 설명을 더 자세히 적는 편이 좋습니다." }
+        ],
+        guideUrl: "/guides/illegal-dumping-guide.html",
+        guideTitle: "무단투기 가이드"
+      },
+      {
+        id: "welfare",
+        typeLabel: "복지 · 지원금 상담",
+        title: "복지 혜택 · 지원금 문의",
+        agency: "복지로 · 주민센터 · 복지상담 창구",
+        category: "welfare",
+        keywords: ["복지", "지원금", "생계", "주거지원", "돌봄", "기초생활", "혜택", "수급", "복지혜택", "상담"],
+        summary: "내 상황에 맞는 복지 혜택을 찾고 싶다면 복지로와 주민센터 상담 흐름을 먼저 확인하는 경우가 많습니다.",
+        why: [
+          "입력 내용에 복지, 혜택, 지원금, 생계, 수급 같은 키워드가 포함되어 있습니다.",
+          "복지 분야는 개인 상황에 따라 적용 제도가 달라져 기초 상담이 중요합니다."
+        ],
+        officialUrl: "https://www.bokjiro.go.kr/ssis-tbu/",
+        officialLabel: "복지로 바로가기",
+        backupUrl: "https://plus.gov.kr",
+        backupLabel: "정부24 바로가기",
+        documents: ["가구 상황 메모", "소득·재산 관련 기본 정보", "가족 구성 정보", "현재 겪는 어려움 정리"],
+        cautions: [
+          "복지 제도는 가구 상황과 자격 요건에 따라 달라질 수 있습니다.",
+          "온라인 정보만으로 단정하지 말고 공식 상담을 함께 활용하세요."
+        ],
+        faq: [
+          { q: "내가 어떤 혜택 대상인지 바로 알 수 있나요?", a: "대략적인 방향은 볼 수 있지만, 최종 자격 판단은 공식 상담과 신청 절차에서 확인됩니다." },
+          { q: "주민센터에 바로 가도 되나요?", a: "네. 다만 먼저 본인 상황을 간단히 정리해두면 상담이 더 쉬워집니다." }
+        ],
+        guideUrl: "/guides/welfare-help-guide.html",
+        guideTitle: "복지 상담 가이드"
+      },
+      {
+        id: "consumer",
+        typeLabel: "소비자 피해 · 환불",
+        title: "환불 거부 · 소비자 피해 상담",
+        agency: "소비자24 · 관련 기관 상담창구",
+        category: "consumer",
+        keywords: ["환불", "교환", "쇼핑몰", "사기", "결제", "구매", "배송", "하자", "불량", "소비자", "분쟁", "피해"],
+        summary: "상품·서비스 거래 분쟁은 결제 내역과 대화 기록 정리가 중요하며, 소비자24 같은 공식 안내 창구를 먼저 확인하는 경우가 많습니다.",
+        why: [
+          "입력 내용에 환불, 쇼핑몰, 결제, 구매, 하자, 분쟁 관련 키워드가 포함되어 있습니다.",
+          "이 유형은 증빙 자료 정리가 결과에 큰 영향을 줍니다."
+        ],
+        officialUrl: "https://www.consumer.go.kr/",
+        officialLabel: "소비자24 바로가기",
+        backupUrl: "https://www.epeople.go.kr",
+        backupLabel: "국민신문고 바로가기",
+        documents: ["주문번호 또는 결제내역", "판매자와의 대화 기록", "상품 사진 또는 서비스 증빙", "환불 요청 날짜"],
+        cautions: [
+          "판매자와의 대화 기록을 삭제하지 말고 보관하세요.",
+          "감정적 표현보다 날짜와 사실관계를 정리하는 편이 좋습니다."
+        ],
+        faq: [
+          { q: "판매자가 답을 안 해도 진행할 수 있나요?", a: "가능하지만, 연락 시도 기록과 결제 증빙을 함께 정리해두는 것이 좋습니다." },
+          { q: "어떤 자료가 가장 중요하나요?", a: "결제 내역, 주문 정보, 판매자 응답 기록이 핵심입니다." }
+        ],
+        guideUrl: "/guides/consumer-complaint-guide.html",
+        guideTitle: "소비자 피해 가이드"
+      },
+      {
+        id: "traffic",
+        typeLabel: "교통 · 불법주정차",
+        title: "교통 불편 · 불법주정차 문의",
+        agency: "지자체 교통행정 부서 · 국민신문고",
+        category: "traffic",
+        keywords: ["불법주정차", "주차", "교통", "버스", "신호", "횡단보도", "정차", "도로통행", "과태료"],
+        summary: "교통 불편이나 불법주정차는 지역 교통행정 부서와 연결되는 경우가 많습니다.",
+        why: [
+          "입력 내용에 주정차, 교통, 신호, 통행 불편 관련 표현이 포함되어 있습니다.",
+          "이 유형은 지역별 운영 방식 차이가 큰 편입니다."
+        ],
+        officialUrl: "https://www.epeople.go.kr",
+        officialLabel: "국민신문고 바로가기",
+        backupUrl: "https://plus.gov.kr",
+        backupLabel: "정부24 바로가기",
+        documents: ["정확한 위치", "발생 시간", "차량 특징 또는 사진", "반복 여부"],
+        cautions: [
+          "즉시 위험 상황이면 일반 민원보다 긴급 신고가 우선일 수 있습니다.",
+          "지역별 앱이나 신고 방식 차이가 있을 수 있습니다."
+        ],
+        faq: [
+          { q: "사진이 꼭 있어야 하나요?", a: "없어도 가능할 수 있지만, 있으면 설명과 접수에 도움이 됩니다." },
+          { q: "시간 정보가 중요한가요?", a: "네. 반복 시간대나 즉시성 판단에 도움이 됩니다." }
+        ],
+        guideUrl: "/guides/index.html",
+        guideTitle: "민원 가이드 허브"
+      },
+      {
+        id: "housing",
+        typeLabel: "주택 · 관리비 · 하자",
+        title: "주거 불편 · 공동주택 문의",
+        agency: "관리사무소 · 임대인 · 지자체 · 국민신문고",
+        category: "housing",
+        keywords: ["관리비", "하자", "누수", "곰팡이", "공동주택", "임대", "주택", "엘리베이터", "시설고장"],
+        summary: "주거 불편은 계약관계, 관리주체, 공공기관 관할 여부를 구분하는 것이 중요합니다.",
+        why: [
+          "입력 내용에 관리비, 하자, 누수, 임대, 시설 고장 같은 주거 관련 키워드가 포함되어 있습니다.",
+          "민간 관리영역과 행정 민원영역이 섞여 있을 수 있어 구분이 중요합니다."
+        ],
+        officialUrl: "https://www.epeople.go.kr",
+        officialLabel: "국민신문고 바로가기",
+        backupUrl: "https://plus.gov.kr",
+        backupLabel: "정부24 바로가기",
+        documents: ["계약 관련 정보", "문제 발생 시점", "사진", "관리사무소 또는 임대인과의 대화 기록"],
+        cautions: [
+          "민간 계약 문제와 행정 민원은 다를 수 있습니다.",
+          "누수나 하자처럼 확산되는 문제는 기록을 빨리 남기는 것이 좋습니다."
+        ],
+        faq: [
+          { q: "관리사무소와 지자체 중 어디부터 봐야 하나요?", a: "공동주택 내부 관리 문제인지, 공공기관이 관여할 사안인지 먼저 나눠보는 것이 좋습니다." },
+          { q: "계약서가 꼭 필요한가요?", a: "임대·보수 책임을 확인해야 하는 상황이라면 큰 도움이 됩니다." }
+        ],
+        guideUrl: "/guides/index.html",
+        guideTitle: "민원 가이드 허브"
+      }
+    ];
+
+    const categoryMap = {
+      moving: "전입 · 주민등록",
+      noise: "층간소음 · 생활소음",
+      road: "도로 · 시설물 파손",
+      waste: "쓰레기 · 무단투기",
+      welfare: "복지 · 지원금 상담",
+      consumer: "소비자 피해 · 환불",
+      traffic: "교통 · 불법주정차",
+      housing: "주택 · 관리비 · 하자"
+    };
+
+    const form = document.getElementById("searchForm");
+    const qInput = document.getElementById("q");
+    const categoryInput = document.getElementById("category");
+    const regionInput = document.getElementById("region");
+    const resultList = document.getElementById("resultList");
+    const emptyState = document.getElementById("emptyState");
+    const resultSummary = document.getElementById("resultSummary");
+    const resultCount = document.getElementById("resultCount");
+    const resetButton = document.getElementById("resetButton");
+    const chips = document.querySelectorAll(".chip");
+
+    function normalizeText(value) {
+      return (value || "").toLowerCase().replace(/\s+/g, " ").trim();
+    }
+
+    function escapeHtml(value) {
+      return String(value)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+    function getScoreLabel(score) {
+      if (score >= 65) {
+        return { text: "추천도 높음", className: "score-badge score-high" };
+      }
+      return { text: "관련 가능성 있음", className: "score-badge score-mid" };
+    }
+
+    function computeMatchScore(item, query, category) {
+      let score = 0;
+      const normalizedQuery = normalizeText(query);
+      const normalizedCategory = normalizeText(category);
+
+      if (normalizedCategory && item.category === normalizedCategory) {
+        score += 40;
+      }
+
+      if (normalizedQuery) {
+        item.keywords.forEach((keyword) => {
+          if (normalizedQuery.includes(normalizeText(keyword))) {
+            score += 12;
+          }
+        });
+
+        if (normalizedQuery.includes(normalizeText(item.category))) {
+          score += 10;
+        }
+
+        if (normalizedQuery.includes("어디") || normalizedQuery.includes("문의") || normalizedQuery.includes("신고")) {
+          score += 4;
+        }
+      }
+
+      return score;
+    }
+
+    function analyzeSearch(query, category, region) {
+      const normalizedQuery = normalizeText(query);
+      const hasQuery = normalizedQuery.length > 0;
+      const hasCategory = category.length > 0;
+
+      let results = complaintsData
+        .map((item) => {
+          const score = computeMatchScore(item, normalizedQuery, category);
+          return { ...item, score };
+        })
+        .filter((item) => {
+          if (!hasQuery && !hasCategory) return false;
+          if (hasCategory && item.category === category && item.score >= 40) return true;
+          if (hasQuery && item.score >= 12) return true;
+          return false;
+        })
+        .sort((a, b) => b.score - a.score)
+        .slice(0, 3);
+
+      if (!results.length && hasCategory) {
+        results = complaintsData
+          .filter((item) => item.category === category)
+          .map((item) => ({ ...item, score: 50 }))
+          .slice(0, 1);
+      }
+
+      if (!results.length && hasQuery) {
+        const genericFallback = complaintsData
+          .map((item) => ({ ...item, score: item.category === "housing" ? 20 : 18 }))
+          .sort((a, b) => b.score - a.score)
+          .slice(0, 2);
+
+        results = genericFallback;
+      }
+
+      return {
+        query,
+        category,
+        region,
+        results
+      };
+    }
+
+    function createListHtml(items) {
+      return `
+        <ul class="clean-list">
+          ${items.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}
+        </ul>
+      `;
+    }
+
+    function createFaqHtml(faqItems) {
+      return `
+        <div class="list-box">
+          <h4>자주 확인할 점</h4>
+          ${faqItems.map((item) => `
+            <p><strong>${escapeHtml(item.q)}</strong><br />${escapeHtml(item.a)}</p>
+          `).join("")}
+        </div>
+      `;
+    }
+
+    function createMapPlaceholder(region, title) {
+      const regionText = region ? `${escapeHtml(region)} 기준` : "지역 정보 입력 후";
+      return `
+        <div class="map-box">
+          <h4>지도 연결 영역</h4>
+          <div class="map-placeholder">
+            <div>
+              <strong>${regionText} 위치 안내</strong><br />
+              ${escapeHtml(title)} 관련 기관 또는 민원 창구를
+              지도 API로 연결할 자리입니다.<br /><br />
+              지금은 예시 버전이므로, 나중에 Kakao Maps API를 붙이면
+              가까운 기관 위치나 관련 행정기관 안내를 확장할 수 있습니다.
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderResults(payload) {
+      const { query, category, region, results } = payload;
+
+      resultList.innerHTML = "";
+
+      if (!query && !category) {
+        emptyState.classList.add("show");
+        resultSummary.textContent = "문제 상황을 입력하면 이곳에 추천 문의처가 표시됩니다.";
+        resultCount.textContent = "대기 중";
+        return;
+      }
+
+      emptyState.classList.remove("show");
+
+      const categoryText = category ? categoryMap[category] || category : "유형 미선택";
+      const queryText = query ? `"${query}"` : "입력 문장 없음";
+      const regionText = region ? `${region}` : "지역 미입력";
+
+      resultSummary.textContent = `${queryText} · ${categoryText} · ${regionText} 기준으로 문의처 후보를 정리했습니다.`;
+      resultCount.textContent = `${results.length}개 추천`;
+
+      if (!results.length) {
+        resultList.innerHTML = `
+          <article class="empty-card show">
+            <h3>정확히 맞는 패턴을 찾지 못했습니다</h3>
+            <p>
+              더 구체적으로 적어보세요. 예: “서울 강서구 아파트 윗집 소음이 밤마다 심함”
+            </p>
+          </article>
+        `;
+        return;
+      }
+
+      resultList.innerHTML = results.map((item, index) => {
+        const scoreMeta = getScoreLabel(item.score);
+        const reasonText = item.why.map((line) => `<li>${escapeHtml(line)}</li>`).join("");
+
+        return `
+          <article class="result-card">
+            <div class="result-top">
+              <div>
+                <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:10px;">
+                  <span class="${scoreMeta.className}">${scoreMeta.text}</span>
+                  <span class="type-badge">${escapeHtml(item.typeLabel)}</span>
+                  <span class="agency-badge">${escapeHtml(item.agency)}</span>
+                </div>
+                <h3>${index + 1}. ${escapeHtml(item.title)}</h3>
+                <p>${escapeHtml(item.summary)}</p>
+              </div>
+            </div>
+
+            <div class="why-box">
+              <h4>왜 이 결과가 나왔나요?</h4>
+              <ul class="clean-list">${reasonText}</ul>
+            </div>
+
+            <div class="link-row">
+              <a class="link-btn primary" href="${escapeHtml(item.officialUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(item.officialLabel)}</a>
+              <a class="link-btn" href="${escapeHtml(item.backupUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(item.backupLabel)}</a>
+              <a class="link-btn" href="${escapeHtml(item.guideUrl)}">${escapeHtml(item.guideTitle)} 보기</a>
+            </div>
+
+            <div class="list-box">
+              <h4>접수 전 준비하면 좋은 정보</h4>
+              ${createListHtml(item.documents)}
+            </div>
+
+            <div class="tip-box">
+              <h4>유의사항</h4>
+              ${createListHtml(item.cautions)}
+            </div>
+
+            ${createFaqHtml(item.faq)}
+            ${createMapPlaceholder(region, item.title)}
+
+            <div class="related-guides">
+              <h4>다음 단계 추천</h4>
+              <p>
+                이 결과는 <strong>공식 접수 대행</strong>이 아니라
+                <strong>문의 시작점 추천</strong>입니다.
+                접수 전에는 공식 사이트에서 최신 기준을 다시 확인해 주세요.
+              </p>
+            </div>
+          </article>
+        `;
+      }).join("");
+    }
+
+    function applyUrlParams() {
+      const params = new URLSearchParams(window.location.search);
+      const q = params.get("q") || "";
+      const category = params.get("category") || "";
+      const region = params.get("region") || "";
+
+      qInput.value = q;
+      categoryInput.value = category;
+      regionInput.value = region;
+
+      if (q || category) {
+        const payload = analyzeSearch(q, category, region);
+        renderResults(payload);
+      }
+    }
+
+    function updateUrlParams(q, category, region) {
+      const params = new URLSearchParams();
+
+      if (q) params.set("q", q);
+      if (category) params.set("category", category);
+      if (region) params.set("region", region);
+
+      const newUrl = `${window.location.pathname}${params.toString() ? "?" + params.toString() : ""}`;
+      window.history.replaceState({}, "", newUrl);
+    }
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      const q = qInput.value.trim();
+      const category = categoryInput.value.trim();
+      const region = regionInput.value.trim();
+
+      updateUrlParams(q, category, region);
+
+      const payload = analyzeSearch(q, category, region);
+      renderResults(payload);
+
+      document.getElementById("result-title").scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+    });
+
+    resetButton.addEventListener("click", () => {
+      qInput.value = "";
+      categoryInput.value = "";
+      regionInput.value = "";
+
+      updateUrlParams("", "", "");
+      renderResults({ query: "", category: "", region: "", results: [] });
+      emptyState.classList.add("show");
+    });
+
+    chips.forEach((chip) => {
+      chip.addEventListener("click", () => {
+        qInput.value = chip.dataset.query || "";
+        categoryInput.value = chip.dataset.category || "";
+        qInput.focus();
+      });
+    });
+
+    renderResults({ query: "", category: "", region: "", results: [] });
+    applyUrlParams();
+  </script>
+</body>
+</html>
