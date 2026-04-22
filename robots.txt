@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://complaint-guide.com/sitemap.xml
+Sitemap: https://complaintguide.pages.dev/sitemap.xml
