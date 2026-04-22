@@ -1,99 +1,233 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>도로 파손/포트홀 어디에 제보하나요? 신고 및 배상 절차 안내 | ComplaintGuide</title>
-  <meta name="description" content="도로의 위험한 포트홀이나 파손을 발견하셨나요? 즉시 신고하는 방법과 차량 파손 시 국가배상을 신청하는 절차를 상세히 안내해 드립니다.">
-  <link rel="stylesheet" href="/assets/css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>도로 파손은 어디에 제보하나요? | ComplaintGuide</title>
+  <meta name="description" content="포트홀, 보도블록 파손, 가로등 고장, 시설물 위험 등 도로·시설물 파손 문제를 어디에 제보하면 좋을지, 위치 설명과 준비 정보를 함께 정리한 가이드입니다." />
+  <meta name="robots" content="index,follow" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="도로 파손은 어디에 제보하나요? | ComplaintGuide" />
+  <meta property="og:description" content="도로·시설물 파손 제보의 시작점, 위치 설명법, 준비물과 FAQ를 정리한 가이드입니다." />
+  <meta property="og:locale" content="ko_KR" />
+  <meta name="theme-color" content="#0f172a" />
   <style>
-    body { background: var(--bg); color: var(--text); line-height: 1.7; }
-    .guide-content { background: #fff; padding: 40px; border-radius: var(--radius-xl); border: 1px solid var(--line); box-shadow: var(--shadow); margin-top: 30px; }
-    .official-box { background: #fff7ed; border: 1px dashed #ea580c; padding: 25px; border-radius: var(--radius-lg); margin: 30px 0; }
-    h2 { border-left: 5px solid #ea580c; padding-left: 15px; margin-top: 40px; }
-    .check-list { list-style: none; padding: 0; }
-    .check-list li { padding: 8px 0; display: flex; align-items: flex-start; gap: 10px; }
-    .check-list li::before { content: "✓"; color: #ea580c; font-weight: bold; }
-    .breadcrumb { font-size: 0.9rem; color: var(--muted); margin-bottom: 20px; }
+    :root{--bg:#f8fafc;--surface:#fff;--line:#e2e8f0;--text:#0f172a;--muted:#475569;--primary:#1d4ed8;--accent:#0f766e;--shadow:0 14px 40px rgba(15,23,42,.08);--radius-xl:24px;--max:1080px}
+    *{box-sizing:border-box} html{scroll-behavior:smooth}
+    body{margin:0;font-family:"Pretendard","Noto Sans KR","Apple SD Gothic Neo",Arial,sans-serif;color:var(--text);background:radial-gradient(circle at top left, rgba(29,78,216,.06), transparent 28%),var(--bg);line-height:1.68}
+    a{text-decoration:none;color:inherit}.container{width:min(calc(100% - 32px),var(--max));margin:0 auto}
+    header{position:sticky;top:0;z-index:20;background:rgba(248,250,252,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+    .topbar{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:14px 0}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:800}.badge{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,var(--primary),var(--accent));color:#fff;font-weight:900}
+    nav{display:flex;gap:10px;flex-wrap:wrap} nav a{padding:10px 14px;border-radius:999px;color:var(--muted);font-weight:700} nav a.cta{background:var(--primary);color:#fff}
+    main{padding:28px 0 40px}.breadcrumb{display:flex;gap:8px;flex-wrap:wrap;color:#64748b;font-size:.92rem;margin-bottom:14px}
+    .hero,.card,.faq-card,.cta,.notice{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-xl);box-shadow:var(--shadow)}
+    .hero,.card,.faq-card,.cta,.notice{padding:24px}
+    .eyebrow{display:inline-flex;padding:8px 12px;border-radius:999px;background:#dbeafe;color:#1e3a8a;font-size:.9rem;font-weight:800;margin-bottom:16px}
+    h1,h2,h3{line-height:1.22;letter-spacing:-.03em;margin:0 0 14px} h1{font-size:clamp(2rem,4vw,3rem)} h2{font-size:clamp(1.35rem,2.5vw,2rem)}
+    p{margin:0 0 14px;color:var(--muted)} .lead{font-size:1.06rem}
+    .btn-row,.link-row{display:flex;gap:10px;flex-wrap:wrap}.btn,.link-btn{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 16px;border-radius:14px;font-weight:800}
+    .btn.primary,.link-btn.primary{background:var(--primary);color:#fff}.btn.secondary,.link-btn.secondary{background:#e2e8f0;color:var(--text)}
+    section{padding:22px 0}.grid-2,.grid-3{display:grid;gap:16px}.grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}.grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .mini-badge{display:inline-block;padding:6px 10px;border-radius:999px;background:#eff6ff;color:#1e3a8a;font-size:.82rem;font-weight:800;margin-bottom:10px}
+    ul{margin:10px 0 0;padding-left:18px;color:var(--muted)} li{margin-bottom:8px}
+    .notice{background:linear-gradient(135deg,#0f172a,#1e3a8a);color:#fff;border:none}.notice p,.notice li{color:rgba(255,255,255,.9)}
+    details summary{list-style:none;cursor:pointer;font-weight:800;position:relative;padding-right:26px} details summary::-webkit-details-marker{display:none} details summary::after{content:"+";position:absolute;right:0;top:0;color:var(--primary);font-size:1.2rem} details[open] summary::after{content:"−"}
+    .faq-item{border-top:1px solid var(--line);padding:14px 0}.faq-item:first-child{border-top:0;padding-top:0}
+    footer{border-top:1px solid var(--line);background:#fff}.footer-inner{padding:26px 0 38px;display:grid;grid-template-columns:1.2fr .8fr;gap:22px}.footer-links{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}.footer-links a{padding:10px 12px;border-radius:12px;background:#f1f5f9;color:var(--muted);font-weight:700}.footer-note{font-size:.94rem;color:#64748b;margin-top:10px}
+    @media (max-width:860px){.grid-2,.grid-3,.footer-inner{grid-template-columns:1fr}.footer-links{justify-content:flex-start}}
+    @media (max-width:720px){.container{width:min(calc(100% - 24px),var(--max))}.topbar{flex-direction:column;align-items:flex-start}nav{width:100%}.hero,.card,.faq-card,.cta,.notice{padding:20px}.btn-row,.link-row{flex-direction:column}.btn,.link-btn{width:100%}}
   </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container topbar" style="display: flex; align-items: center; justify-content: space-between; padding: 14px 0;">
-      <a class="brand" href="/" style="display: inline-flex; align-items: center; gap: 10px; font-weight: 800; color: #0f172a;">
-        <span style="width: 38px; height: 38px; border-radius: 12px; display: grid; place-items: center; background: linear-gradient(135deg, #1d4ed8, #0f766e); color: #fff;">CG</span>
-        <span>ComplaintGuide</span>
-      </a>
-      <nav style="display: flex; gap: 15px;">
-        <a href="/guides/" style="font-weight: 600; color: #475569;">가이드 목록</a>
-        <a href="/search/" style="font-weight: 600; color: #475569;">민원 찾기</a>
+  <header>
+    <div class="container topbar">
+      <a class="brand" href="/"><span class="badge">CG</span><span>ComplaintGuide</span></a>
+      <nav>
+        <a href="/">홈</a>
+        <a href="/search/">민원 찾기</a>
+        <a href="/guides/">가이드</a>
+        <a href="/faq/">FAQ</a>
+        <a class="cta" href="/search/">지금 찾아보기</a>
       </nav>
     </div>
   </header>
 
-  <main class="container" style="padding: 40px 0;">
-    <nav class="breadcrumb">
-      <a href="/">홈</a> > <a href="/guides/">가이드 허브</a> > 도로 파손 제보 가이드
-    </nav>
-
-    <article class="guide-content">
-      <span style="color: #ea580c; font-weight: 800; font-size: 0.9rem; letter-spacing: 0.1em;">안전/교통 가이드</span>
-      <h1 style="font-size: 2.5rem; margin: 15px 0;">도로 파손과 포트홀, 사고 전 신고가 우선입니다</h1>
-      <p style="font-size: 1.1rem; color: var(--muted);">포트홀(Pothole)은 타이어 펑크나 조향 장치 고장을 일으켜 대형 사고로 이어질 수 있습니다. 발견 즉시 다음 창구를 통해 제보해 주세요.</p>
-
-      <div class="official-box">
-        <h3 style="margin-top: 0; color: #7c2d12;">🚀 신속한 제보 및 신고 창구</h3>
-        <p>도로의 종류(고속도로, 국도, 지방도 등)에 따라 담당 기관이 다를 수 있으나, 아래 통합 창구를 이용하면 편리합니다.</p>
-        <ul style="margin: 15px 0;">
-          <li><strong>안전신문고 (앱/웹):</strong> 가장 추천하는 방법입니다. 사진과 위치를 즉시 전송할 수 있습니다.</li>
-          <li><strong>국민신문고:</strong> <a href="https://www.epeople.go.kr" target="_blank" style="color: #ea580c; text-decoration: underline; font-weight: 700;">www.epeople.go.kr</a></li>
-          <li><strong>지역 콜센터:</strong> 서울 120, 경기 120 등 지자체 민원 콜센터</li>
-          <li><strong>고속도로:</strong> 한국도로공사 콜센터 (1588-2504)</li>
-        </ul>
+  <main>
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="/">홈</a><span>/</span><a href="/guides/">가이드</a><span>/</span><span>도로 파손은 어디에 제보하나요?</span>
       </div>
 
-      <h2>1. 신고 시 필요한 정보</h2>
-      <p>빠른 보수를 위해 다음 정보를 명확히 전달해 주세요.</p>
-      <ul class="check-list">
-        <li><strong>상세 위치:</strong> 주소 또는 주변 지형물(건물명, 전신주 번호 등)</li>
-        <li><strong>현장 사진:</strong> 파손 부위가 잘 보이는 근거리 사진 및 전체 위치가 보이는 원거리 사진</li>
-        <li><strong>파손 규모:</strong> 대략적인 크기나 깊이 (예: 지름 30cm 정도의 깊은 구멍)</li>
-      </ul>
+      <article class="hero">
+        <span class="eyebrow">생활 안전 가이드</span>
+        <h1>도로 파손은 어디에 제보하나요?</h1>
+        <p class="lead">
+          포트홀, 보도블록 파손, 가로등 고장, 맨홀 주변 위험처럼
+          <strong>길에서 발견한 위험 요소</strong>는 어디에 알려야 할지 막막한 경우가 많습니다.
+        </p>
+        <p>
+          이 유형의 핵심은 “기관 이름을 아는 것”보다도
+          <strong>위치를 얼마나 정확하게 설명할 수 있느냐</strong>에 가깝습니다.
+          그래서 이 가이드는 문의처보다 먼저 <strong>위치 정보 정리법</strong>을 함께 설명합니다.
+        </p>
+        <div class="btn-row">
+          <a class="btn primary" href="https://www.epeople.go.kr" target="_blank" rel="noopener noreferrer">국민신문고 바로가기</a>
+          <a class="btn secondary" href="/search/?category=road">검색으로 다시 찾기</a>
+        </div>
+      </article>
 
-      <h2>2. 포트홀로 차량 피해를 입었다면? (국가배상)</h2>
-      <p>도로 관리 소홀로 인해 차량이 파손된 경우, '국가배상 제도'를 통해 수리비를 청구할 수 있습니다.</p>
-      <ol style="padding-left: 20px;">
-        <li><strong>증거 확보:</strong> 사고 직후 현장 사진, 블랙박스 영상, 타이어/휠 파손 사진을 반드시 촬영하세요.</li>
-        <li><strong>보험사 연락:</strong> 긴급출동 서비스를 통해 견인 및 조치를 취하고 기록을 남깁니다.</li>
-        <li><strong>배상 청구:</strong> 해당 도로 관할 검찰청 내 '지구배상심의회'에 배상 신청서를 제출합니다.</li>
-      </ol>
+      <section>
+        <div class="grid-3">
+          <div class="card">
+            <span class="mini-badge">핵심</span>
+            <h2>가장 중요한 것</h2>
+            <p>도로·시설물 민원은 <strong>정확한 위치 설명</strong>이 핵심입니다.</p>
+          </div>
+          <div class="card">
+            <span class="mini-badge">추천 흐름</span>
+            <h2>어디부터 보나요?</h2>
+            <p>보통은 <strong>지자체 민원 흐름</strong>이나 공식 민원 창구를 먼저 생각하는 경우가 많습니다.</p>
+          </div>
+          <div class="card">
+            <span class="mini-badge">준비물</span>
+            <h2>무엇이 도움되나요?</h2>
+            <p>사진, 주변 건물명, 도로명, 발견 시간 같은 정보가 있으면 설명이 쉬워집니다.</p>
+          </div>
+        </div>
+      </section>
 
-      <div style="background: #fff8f8; border: 1px solid #fecaca; padding: 20px; border-radius: var(--radius-md); margin-top: 30px;">
-        <h3 style="color: var(--danger); margin-top: 0;">⚠️ 배상 청구 시 유의사항</h3>
-        <p>국가배상은 도로 관리 주체의 과실이 입증되어야 하며, 운전자의 전방 주시 태만이나 과속 등이 있을 경우 과실 비율에 따라 배상액이 감액될 수 있습니다. 증거 영상(블랙박스) 확보가 가장 중요합니다.</p>
-      </div>
+      <section>
+        <div class="grid-2">
+          <div class="card">
+            <span class="mini-badge">1단계</span>
+            <h2>현장을 짧게 메모하세요</h2>
+            <ul>
+              <li>정확한 위치 또는 근처 건물명</li>
+              <li>어떤 위험인지: 포트홀, 보도블록 들뜸, 가로등 고장 등</li>
+              <li>보행자나 차량에 어떤 위험이 있는지</li>
+              <li>발견한 시간대</li>
+            </ul>
+          </div>
 
-      <h2>3. 자주 묻는 질문 (FAQ)</h2>
-      <details style="border-bottom: 1px solid var(--line); padding: 15px 0;">
-        <summary style="font-weight: 700; cursor: pointer;">신고 후 보수까지 얼마나 걸리나요?</summary>
-        <p style="padding-top: 10px; color: var(--muted);">긴급한 파손의 경우 제보 후 보통 24시간 내외에 임시 보수가 이루어지며, 정식 복구는 기상 상황과 일정에 따라 수일이 소요될 수 있습니다.</p>
-      </details>
-      <details style="border-bottom: 1px solid var(--line); padding: 15px 0;">
-        <summary style="font-weight: 700; cursor: pointer;">밤이라서 사진을 못 찍었는데 신고 가능한가요?</summary>
-        <p style="padding-top: 10px; color: var(--muted);">네, 위치 설명만으로도 신고는 가능합니다. 다만 배상 청구를 위해서는 반드시 위치와 사고 정황을 증명할 자료가 필요합니다.</p>
-      </details>
-    </article>
+          <div class="card">
+            <span class="mini-badge">2단계</span>
+            <h2>사진이 있으면 전달력이 좋아집니다</h2>
+            <p>
+              사진은 필수라고 단정할 수는 없지만,
+              현장 상태를 설명하는 데 큰 도움이 됩니다.
+            </p>
+          </div>
 
-    <section style="margin-top: 50px; text-align: center;">
-      <h3>다른 도움이 필요하신가요?</h3>
-      <a href="/search/" class="btn btn-primary" style="background: var(--primary); color: #fff; padding: 15px 30px; border-radius: 12px; display: inline-block; margin-top: 15px; font-weight: 800;">민원 안내 도우미 검색하기</a>
-    </section>
+          <div class="card">
+            <span class="mini-badge">3단계</span>
+            <h2>공식 민원 창구로 방향을 확인하세요</h2>
+            <p>
+              어떤 부서가 담당하는지 정확히 모르더라도,
+              국민신문고 같은 공식 채널에서 시작점을 확인하는 흐름이 이해하기 쉽습니다.
+            </p>
+            <div class="link-row">
+              <a class="link-btn primary" href="https://www.epeople.go.kr" target="_blank" rel="noopener noreferrer">국민신문고 열기</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <span class="mini-badge">4단계</span>
+            <h2>긴급 위험은 일반 민원보다 우선순위가 다를 수 있습니다</h2>
+            <p>
+              단순 불편 제보와 즉시 위험 상황은 다르게 봐야 할 수 있습니다.
+              현장 위험도가 높은 경우에는 일반 정보 탐색보다 안전 확보가 먼저입니다.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="grid-2">
+          <div class="card">
+            <h2>이럴 때 읽어보세요</h2>
+            <ul>
+              <li>큰 포트홀을 발견했는데 어디에 제보해야 할지 모를 때</li>
+              <li>보도블록이 깨져서 보행이 불편한 상황</li>
+              <li>시설물 파손이 반복되는데 담당 기관이 헷갈릴 때</li>
+              <li>사진 없이도 어떤 정보를 적어야 할지 궁금할 때</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h2>미리 준비하면 좋은 정보</h2>
+            <ul>
+              <li>정확한 위치 또는 랜드마크</li>
+              <li>사진</li>
+              <li>위험 정도 메모</li>
+              <li>발견 시간</li>
+              <li>반복 여부</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="notice">
+          <h2>주의할 점</h2>
+          <ul>
+            <li>위치 설명이 모호하면 전달력이 크게 떨어집니다.</li>
+            <li>사진이 없다면 주변 건물, 도로명, 방향 정보를 더 자세히 적는 편이 좋습니다.</li>
+            <li>ComplaintGuide는 공식 접수처가 아니므로 최종 접수는 공식 채널에서 진행해야 합니다.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <div class="faq-card">
+          <h2>자주 묻는 질문</h2>
+          <div class="faq-item">
+            <details open>
+              <summary>정확한 주소를 몰라도 제보할 수 있나요?</summary>
+              <p>가능할 수 있습니다. 대신 근처 건물명, 교차로, 방향 같은 위치 단서를 최대한 많이 적는 편이 좋습니다.</p>
+            </details>
+          </div>
+          <div class="faq-item">
+            <details>
+              <summary>사진이 꼭 필요한가요?</summary>
+              <p>필수라고 단정할 수는 없지만, 현장 설명에 큰 도움이 됩니다.</p>
+            </details>
+          </div>
+          <div class="faq-item">
+            <details>
+              <summary>어느 기관인지 모르겠으면 어떻게 하나요?</summary>
+              <p>그럴 때 공식 민원 창구에서 시작점을 확인하는 방식이 이해하기 쉽습니다.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="cta">
+          <h2>다음 단계</h2>
+          <p>위치와 상황을 문장으로 적으면 검색 페이지에서 더 구체적으로 문의 방향을 정리할 수 있습니다.</p>
+          <div class="link-row">
+            <a class="link-btn primary" href="/search/?category=road">도로·시설물 민원 다시 찾기</a>
+            <a class="link-btn secondary" href="/guides/illegal-dumping-guide.html">무단투기 가이드 보기</a>
+            <a class="link-btn secondary" href="/guides/">가이드 허브로 이동</a>
+          </div>
+        </div>
+      </section>
+    </div>
   </main>
 
-  <footer style="margin-top: 60px; border-top: 1px solid var(--line); padding: 40px 0; background: #fff;">
-    <div class="container" style="text-align: center;">
-      <p style="color: var(--muted); font-size: 0.9rem;">본 사이트는 공식 기관이 아니며, 정보 제공을 목적으로 운영됩니다. 정확한 내용은 공식 기관 사이트에서 확인 바랍니다.</p>
-      <p>&copy; 2026 ComplaintGuide. All rights reserved.</p>
+  <footer>
+    <div class="container footer-inner">
+      <div>
+        <a class="brand" href="/"><span class="badge">CG</span><span>ComplaintGuide</span></a>
+        <p class="footer-note">ComplaintGuide는 생활 속 문제 상황에서 적절한 문의 기관과 공식 민원 경로를 이해하기 쉽게 안내하는 정보형 서비스입니다.</p>
+      </div>
+      <div class="footer-links">
+        <a href="/about/">About</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/terms/">Terms</a>
+        <a href="/contact/">Contact</a>
+        <a href="/faq/">FAQ</a>
+      </div>
     </div>
   </footer>
 </body>
