@@ -1,98 +1,228 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>소비자 피해/환불 어디에 상담하나요? 해결 절차 안내 | ComplaintGuide</title>
-  <meta name="description" content="환불 거절, 제품 하자 등으로 고민 중이신가요? 1372 소비자상담센터 이용 방법과 한국소비자원 피해 구제 신청 절차를 쉽게 알려드립니다.">
-  <link rel="stylesheet" href="/assets/css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>소비자 피해는 어디에 상담하나요? | ComplaintGuide</title>
+  <meta name="description" content="환불 거부, 쇼핑몰 분쟁, 배송 문제, 서비스 불이행 등 소비자 피해가 생겼을 때 어디서부터 상담을 시작하면 좋은지 정리한 가이드입니다." />
+  <meta name="robots" content="index,follow" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="소비자 피해는 어디에 상담하나요? | ComplaintGuide" />
+  <meta property="og:description" content="소비자24를 포함한 소비자 피해 상담 시작점, 증빙 준비, 주의사항과 FAQ를 정리한 가이드입니다." />
+  <meta property="og:locale" content="ko_KR" />
+  <meta name="theme-color" content="#0f172a" />
   <style>
-    body { background: var(--bg); color: var(--text); line-height: 1.7; }
-    .guide-content { background: #fff; padding: 40px; border-radius: var(--radius-xl); border: 1px solid var(--line); box-shadow: var(--shadow); margin-top: 30px; }
-    .official-box { background: #f0f9ff; border: 1px dashed #0284c7; padding: 25px; border-radius: var(--radius-lg); margin: 30px 0; }
-    h2 { border-left: 5px solid #0284c7; padding-left: 15px; margin-top: 40px; }
-    .check-list { list-style: none; padding: 0; }
-    .check-list li { padding: 8px 0; display: flex; align-items: flex-start; gap: 10px; }
-    .check-list li::before { content: "✓"; color: #0284c7; font-weight: bold; }
-    .breadcrumb { font-size: 0.9rem; color: var(--muted); margin-bottom: 20px; }
+    :root{--bg:#f8fafc;--surface:#fff;--line:#e2e8f0;--text:#0f172a;--muted:#475569;--primary:#1d4ed8;--accent:#0f766e;--shadow:0 14px 40px rgba(15,23,42,.08);--radius-xl:24px;--max:1080px}
+    *{box-sizing:border-box} body{margin:0;font-family:"Pretendard","Noto Sans KR","Apple SD Gothic Neo",Arial,sans-serif;color:var(--text);background:radial-gradient(circle at top left, rgba(29,78,216,.06), transparent 28%),var(--bg);line-height:1.68}
+    a{text-decoration:none;color:inherit}.container{width:min(calc(100% - 32px),var(--max));margin:0 auto}
+    header{position:sticky;top:0;z-index:20;background:rgba(248,250,252,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+    .topbar{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:14px 0}.brand{display:flex;align-items:center;gap:10px;font-weight:800}.badge{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,var(--primary),var(--accent));color:#fff;font-weight:900}
+    nav{display:flex;gap:10px;flex-wrap:wrap} nav a{padding:10px 14px;border-radius:999px;color:var(--muted);font-weight:700} nav a.cta{background:var(--primary);color:#fff}
+    main{padding:28px 0 40px}.breadcrumb{display:flex;gap:8px;flex-wrap:wrap;color:#64748b;font-size:.92rem;margin-bottom:14px}
+    .hero,.card,.faq-card,.cta,.notice{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-xl);box-shadow:var(--shadow)}
+    .hero,.card,.faq-card,.cta,.notice{padding:24px}.eyebrow{display:inline-flex;padding:8px 12px;border-radius:999px;background:#dbeafe;color:#1e3a8a;font-size:.9rem;font-weight:800;margin-bottom:16px}
+    h1,h2,h3{line-height:1.22;letter-spacing:-.03em;margin:0 0 14px} h1{font-size:clamp(2rem,4vw,3rem)} h2{font-size:clamp(1.35rem,2.5vw,2rem)}
+    p{margin:0 0 14px;color:var(--muted)} .lead{font-size:1.06rem}
+    .btn-row,.link-row{display:flex;gap:10px;flex-wrap:wrap}.btn,.link-btn{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 16px;border-radius:14px;font-weight:800}
+    .btn.primary,.link-btn.primary{background:var(--primary);color:#fff}.btn.secondary,.link-btn.secondary{background:#e2e8f0;color:var(--text)}
+    section{padding:22px 0}.grid-2,.grid-3{display:grid;gap:16px}.grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}.grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .mini-badge{display:inline-block;padding:6px 10px;border-radius:999px;background:#eff6ff;color:#1e3a8a;font-size:.82rem;font-weight:800;margin-bottom:10px}
+    ul{margin:10px 0 0;padding-left:18px;color:var(--muted)} li{margin-bottom:8px}
+    .notice{background:linear-gradient(135deg,#0f172a,#1e3a8a);color:#fff;border:none}.notice p,.notice li{color:rgba(255,255,255,.9)}
+    details summary{list-style:none;cursor:pointer;font-weight:800;position:relative;padding-right:26px} details summary::-webkit-details-marker{display:none} details summary::after{content:"+";position:absolute;right:0;top:0;color:var(--primary);font-size:1.2rem} details[open] summary::after{content:"−"}
+    .faq-item{border-top:1px solid var(--line);padding:14px 0}.faq-item:first-child{border-top:0;padding-top:0}
+    footer{border-top:1px solid var(--line);background:#fff}.footer-inner{padding:26px 0 38px;display:grid;grid-template-columns:1.2fr .8fr;gap:22px}.footer-links{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}.footer-links a{padding:10px 12px;border-radius:12px;background:#f1f5f9;color:var(--muted);font-weight:700}.footer-note{font-size:.94rem;color:#64748b;margin-top:10px}
+    @media (max-width:860px){.grid-2,.grid-3,.footer-inner{grid-template-columns:1fr}.footer-links{justify-content:flex-start}}
+    @media (max-width:720px){.container{width:min(calc(100% - 24px),var(--max))}.topbar{flex-direction:column;align-items:flex-start}nav{width:100%}.hero,.card,.faq-card,.cta,.notice{padding:20px}.btn-row,.link-row{flex-direction:column}.btn,.link-btn{width:100%}}
   </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container topbar" style="display: flex; align-items: center; justify-content: space-between; padding: 14px 0;">
-      <a class="brand" href="/" style="display: inline-flex; align-items: center; gap: 10px; font-weight: 800; color: #0f172a;">
-        <span style="width: 38px; height: 38px; border-radius: 12px; display: grid; place-items: center; background: linear-gradient(135deg, #1d4ed8, #0f766e); color: #fff;">CG</span>
-        <span>ComplaintGuide</span>
-      </a>
-      <nav style="display: flex; gap: 15px;">
-        <a href="/guides/" style="font-weight: 600; color: #475569;">가이드 목록</a>
-        <a href="/search/" style="font-weight: 600; color: #475569;">민원 찾기</a>
+  <header>
+    <div class="container topbar">
+      <a class="brand" href="/"><span class="badge">CG</span><span>ComplaintGuide</span></a>
+      <nav>
+        <a href="/">홈</a>
+        <a href="/search/">민원 찾기</a>
+        <a href="/guides/">가이드</a>
+        <a href="/faq/">FAQ</a>
+        <a class="cta" href="/search/">지금 찾아보기</a>
       </nav>
     </div>
   </header>
 
-  <main class="container" style="padding: 40px 0;">
-    <nav class="breadcrumb">
-      <a href="/">홈</a> > <a href="/guides/">가이드 허브</a> > 소비자 피해 상담 가이드
-    </nav>
-
-    <article class="guide-content">
-      <span style="color: #0284c7; font-weight: 800; font-size: 0.9rem; letter-spacing: 0.1em;">경제/금융 가이드</span>
-      <h1 style="font-size: 2.5rem; margin: 15px 0;">환불 거절과 제품 하자, 정당한 소비자의 권리를 찾으세요</h1>
-      <p style="font-size: 1.1rem; color: var(--muted);">업체와의 직접적인 해결이 어려울 때, 국가에서 운영하는 소비자 보호 체계를 통해 문제를 해결할 수 있습니다.</p>
-
-      <div class="official-box">
-        <h3 style="margin-top: 0; color: #0c4a6e;">🚀 소비자 상담 및 구제 창구</h3>
-        <p>피해 발생 시 가장 먼저 이용해야 할 공식 채널입니다.</p>
-        <ul style="margin: 15px 0;">
-          <li><strong>1372 소비자상담센터:</strong> 전화 <strong style="font-size: 1.2rem;">1372</strong> (국번없이) - 전국 통합 상담</li>
-          <li><strong>한국소비자원:</strong> <a href="https://www.kca.go.kr" target="_blank" style="color: #0284c7; text-decoration: underline; font-weight: 700;">www.kca.go.kr</a> - 피해 구제 및 분쟁 조정</li>
-          <li><strong>공정거래위원회 (행복드림):</strong> 소비자의 권익 증진을 위한 포털 서비스</li>
-        </ul>
+  <main>
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="/">홈</a><span>/</span><a href="/guides/">가이드</a><span>/</span><span>소비자 피해는 어디에 상담하나요?</span>
       </div>
 
-      <h2>1. 피해 해결 절차</h2>
-      <ol style="padding-left: 20px;">
-        <li><strong>사업자 자율 해결:</strong> 업체 고객센터를 통해 환불 또는 교환을 먼저 요구합니다.</li>
-        <li><strong>소비자 상담 (1372):</strong> 업체와 합의가 안 될 경우 1372 센터에 전화하여 법적 자문을 받습니다.</li>
-        <li><strong>피해 구제 신청:</strong> 상담으로도 해결되지 않으면 한국소비자원에 정식으로 '피해 구제'를 신청합니다.</li>
-        <li><strong>분쟁 조정:</strong> 소비자원 권고를 사업자가 거부할 경우 분쟁조정위원회로 회부됩니다.</li>
-      </ol>
+      <article class="hero">
+        <span class="eyebrow">소비자 보호 가이드</span>
+        <h1>소비자 피해는 어디에 상담하나요?</h1>
+        <p class="lead">
+          환불 거부, 쇼핑몰 분쟁, 배송 문제, 서비스 불이행 등 소비자 문제는 누구나 겪을 수 있지만 <strong>어디서부터 풀어야 할지</strong> 몰라 더 답답해지는 경우가 많습니다.
+        </p>
+        <p>
+          이 가이드는 “무조건 한 기관에 바로 넣는다”보다
+          <strong>증빙을 먼저 정리하고</strong>, <strong>공식 상담 시작점</strong>을 찾는 흐름을 설명합니다.
+        </p>
+        <div class="btn-row">
+          <a class="btn primary" href="https://consumer.go.kr/" target="_blank" rel="noopener noreferrer">소비자24 바로가기</a>
+          <a class="btn secondary" href="/search/?category=consumer">검색으로 다시 찾기</a>
+        </div>
+      </article>
 
-      <h2>2. 필수 증빙 자료 (꼭 챙기세요!)</h2>
-      <p>상담과 구제를 위해서는 객관적인 증거가 반드시 필요합니다.</p>
-      <ul class="check-list">
-        <li><strong>결제 증빙:</strong> 영수증, 신용카드 매출전표, 이체 내역서</li>
-        <li><strong>계약 증빙:</strong> 계약서, 주문 내역서, 제품 광고 캡처본</li>
-        <li><strong>피해 증빙:</strong> 제품 하자 사진/영상, 업체와 주고받은 문자/메일/녹취</li>
-      </ul>
+      <section>
+        <div class="grid-3">
+          <div class="card">
+            <span class="mini-badge">핵심</span>
+            <h2>가장 중요한 것</h2>
+            <p>소비자 피해는 감정보다 <strong>증빙 정리</strong>가 더 중요합니다.</p>
+          </div>
+          <div class="card">
+            <span class="mini-badge">추천 흐름</span>
+            <h2>어디부터 보나요?</h2>
+            <p>보통은 <strong>소비자24 같은 공식 상담 시작점</strong>을 먼저 확인하는 것이 이해하기 쉽습니다.</p>
+          </div>
+          <div class="card">
+            <span class="mini-badge">준비</span>
+            <h2>무엇이 필요하나요?</h2>
+            <p>주문번호, 결제내역, 대화 기록, 사진처럼 사실관계를 보여주는 자료가 중요합니다.</p>
+          </div>
+        </div>
+      </section>
 
-      <div style="background: #fff8f8; border: 1px solid #fecaca; padding: 20px; border-radius: var(--radius-md); margin-top: 30px;">
-        <h3 style="color: var(--danger); margin-top: 0;">⚠️ 내용증명 활용하기</h3>
-        <p>구두상 협의가 지연될 경우, 업체에 요구 사항을 담은 **'내용증명'**을 우체국을 통해 발송하세요. 이는 추후 법적 절차에서 강력한 증거 자료가 됩니다.</p>
-      </div>
+      <section>
+        <div class="grid-2">
+          <div class="card">
+            <span class="mini-badge">1단계</span>
+            <h2>문제를 한 줄로 정리하세요</h2>
+            <ul>
+              <li>무엇을 샀는지 또는 어떤 서비스를 이용했는지</li>
+              <li>문제가 무엇인지: 환불 거부, 미배송, 하자 등</li>
+              <li>언제 결제했는지</li>
+              <li>판매자와 어떻게 대화했는지</li>
+            </ul>
+          </div>
 
-      <h2>3. 자주 묻는 질문 (FAQ)</h2>
-      <details style="border-bottom: 1px solid var(--line); padding: 15px 0;">
-        <summary style="font-weight: 700; cursor: pointer;">인터넷 쇼핑몰은 무조건 7일 이내 환불인가요?</summary>
-        <p style="padding-top: 10px; color: var(--muted);">단순 변심의 경우 상품을 받은 날로부터 7일 이내에 청약 철회가 가능합니다. 단, 상품 가치가 훼손되었거나 맞춤 제작 상품 등은 예외가 있을 수 있습니다.</p>
-      </details>
-      <details style="border-bottom: 1px solid var(--line); padding: 15px 0;">
-        <summary style="font-weight: 700; cursor: pointer;">소비자원 결정은 강제성이 있나요?</summary>
-        <p style="padding-top: 10px; color: var(--muted);">'피해 구제' 단계의 합의 권고는 강제성이 없으나, '분쟁 조정' 단계에서 양측이 수락할 경우 재판상 화해와 동일한 법적 효력을 가집니다.</p>
-      </details>
-    </article>
+          <div class="card">
+            <span class="mini-badge">2단계</span>
+            <h2>증빙 자료를 먼저 모으세요</h2>
+            <p>
+              주문번호, 결제내역, 문자·메신저·이메일 대화 기록,
+              상품 사진 또는 서비스 관련 화면이 있으면 설명이 훨씬 쉬워집니다.
+            </p>
+          </div>
 
-    <section style="margin-top: 50px; text-align: center;">
-      <h3>다른 불편한 상황이 있으신가요?</h3>
-      <a href="/search/" class="btn btn-primary" style="background: var(--primary); color: #fff; padding: 15px 30px; border-radius: 12px; display: inline-block; margin-top: 15px; font-weight: 800;">민원 안내 도우미 검색하기</a>
-    </section>
+          <div class="card">
+            <span class="mini-badge">3단계</span>
+            <h2>공식 상담 시작점을 확인하세요</h2>
+            <p>
+              어떤 절차로 접근해야 할지 애매하다면,
+              소비자24 같은 공식 포털에서 먼저 방향을 확인하는 편이 좋습니다.
+            </p>
+            <div class="link-row">
+              <a class="link-btn primary" href="https://consumer.go.kr/" target="_blank" rel="noopener noreferrer">소비자24 열기</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <span class="mini-badge">4단계</span>
+            <h2>기록은 삭제하지 마세요</h2>
+            <p>
+              판매자와의 대화, 주문 화면, 결제 영수증 같은 정보는
+              나중에 상황을 설명할 때 매우 중요할 수 있으므로 보관하는 편이 좋습니다.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="grid-2">
+          <div class="card">
+            <h2>이럴 때 읽어보세요</h2>
+            <ul>
+              <li>쇼핑몰이 환불을 거부할 때</li>
+              <li>상품 하자나 미배송 문제가 생겼을 때</li>
+              <li>서비스 약속이 지켜지지 않았을 때</li>
+              <li>판매자와 연락이 잘 되지 않을 때</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h2>미리 준비하면 좋은 정보</h2>
+            <ul>
+              <li>주문번호 또는 예약번호</li>
+              <li>결제내역</li>
+              <li>판매자와의 대화 기록</li>
+              <li>상품·서비스 관련 사진 또는 화면</li>
+              <li>환불 요청 날짜와 응답 이력</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="notice">
+          <h2>주의할 점</h2>
+          <ul>
+            <li>분노한 문장보다 날짜와 사실관계를 정리한 문장이 훨씬 도움이 됩니다.</li>
+            <li>증빙이 부족하면 상황 설명이 어려워질 수 있습니다.</li>
+            <li>ComplaintGuide는 공식 상담기관이 아니므로 최종 상담과 접수는 공식 채널에서 진행해야 합니다.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <div class="faq-card">
+          <h2>자주 묻는 질문</h2>
+          <div class="faq-item">
+            <details open>
+              <summary>판매자가 답을 안 해도 상담을 시작할 수 있나요?</summary>
+              <p>가능할 수 있습니다. 다만 연락 시도 기록과 결제 증빙을 함께 정리해두는 편이 좋습니다.</p>
+            </details>
+          </div>
+          <div class="faq-item">
+            <details>
+              <summary>가장 중요한 자료는 무엇인가요?</summary>
+              <p>주문·결제 정보와 판매자 응답 기록이 핵심입니다.</p>
+            </details>
+          </div>
+          <div class="faq-item">
+            <details>
+              <summary>감정적으로 쓴 후기나 게시글도 도움이 되나요?</summary>
+              <p>감정보다 날짜, 금액, 응답 내용처럼 객관적 사실을 정리한 자료가 더 유용합니다.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="cta">
+          <h2>다음 단계</h2>
+          <p>환불 거부나 소비자 분쟁 상황을 문장으로 적어보면 검색 페이지에서 더 구체적인 시작점을 정리할 수 있습니다.</p>
+          <div class="link-row">
+            <a class="link-btn primary" href="/search/?category=consumer">소비자 피해 다시 찾기</a>
+            <a class="link-btn secondary" href="/guides/moving-report-guide.html">전입 가이드 보기</a>
+            <a class="link-btn secondary" href="/guides/">가이드 허브로 이동</a>
+          </div>
+        </div>
+      </section>
+    </div>
   </main>
 
-  <footer style="margin-top: 60px; border-top: 1px solid var(--line); padding: 40px 0; background: #fff;">
-    <div class="container" style="text-align: center;">
-      <p style="color: var(--muted); font-size: 0.9rem;">본 사이트는 공식 기관이 아니며, 정보 제공을 목적으로 운영됩니다. 정확한 내용은 공식 기관 사이트에서 확인 바랍니다.</p>
-      <p>&copy; 2026 ComplaintGuide. All rights reserved.</p>
+  <footer>
+    <div class="container footer-inner">
+      <div>
+        <a class="brand" href="/"><span class="badge">CG</span><span>ComplaintGuide</span></a>
+        <p class="footer-note">ComplaintGuide는 생활 속 문제 상황에서 적절한 문의 기관과 공식 민원 경로를 이해하기 쉽게 안내하는 정보형 서비스입니다.</p>
+      </div>
+      <div class="footer-links">
+        <a href="/about/">About</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/terms/">Terms</a>
+        <a href="/contact/">Contact</a>
+        <a href="/faq/">FAQ</a>
+      </div>
     </div>
   </footer>
 </body>
