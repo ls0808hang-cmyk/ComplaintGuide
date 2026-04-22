@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>문의하기 | ComplaintGuide</title>
+  <meta
+    name="description"
+    content="ComplaintGuide 문의하기 페이지입니다. 서비스 관련 문의, 수정 요청, 제안, 협업 문의를 이메일로 보낼 수 있습니다."
+  />
+  <meta name="robots" content="index,follow" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="문의하기 | ComplaintGuide" />
+  <meta
+    property="og:description"
+    content="ComplaintGuide에 대한 문의, 제안, 수정 요청을 보낼 수 있습니다."
+  />
+  <meta property="og:locale" content="ko_KR" />
+  <meta name="theme-color" content="#0f172a" />
+  <style>
+    :root {
+      --bg:#f8fafc; --surface:#ffffff; --line:#e2e8f0; --text:#0f172a; --muted:#475569;
+      --primary:#1d4ed8; --accent:#0f766e; --soft:#eff6ff;
+      --shadow:0 14px 40px rgba(15,23,42,.08); --radius-xl:24px; --radius-lg:18px; --max:1080px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:"Pretendard","Noto Sans KR","Apple SD Gothic Neo",Arial,sans-serif;
+      color:var(--text);
+      background:radial-gradient(circle at top left, rgba(29,78,216,.06), transparent 28%), var(--bg);
+      line-height:1.68;
+    }
+    a{text-decoration:none;color:inherit}
+    .container{width:min(calc(100% - 32px), var(--max)); margin:0 auto}
+    header{
+      position:sticky; top:0; z-index:20;
+      background:rgba(248,250,252,.9); backdrop-filter:blur(10px);
+      border-bottom:1px solid var(--line);
+    }
+    .topbar{display:flex; justify-content:space-between; align-items:center; gap:16px; padding:14px 0}
+    .brand{display:flex; align-items:center; gap:10px; font-weight:800}
+    .badge{
+      width:38px; height:38px; border-radius:12px; display:grid; place-items:center;
+      background:linear-gradient(135deg,var(--primary),var(--accent)); color:#fff; font-weight:900;
+    }
+    nav{display:flex; gap:10px; flex-wrap:wrap}
+    nav a{padding:10px 14px; border-radius:999px; color:var(--muted); font-weight:700}
+    nav a.cta{background:var(--primary); color:#fff}
+    main{padding:28px 0 40px}
+    .breadcrumb{display:flex; gap:8px; flex-wrap:wrap; color:#64748b; font-size:.92rem; margin-bottom:14px}
+    .hero,.card,.contact-box,.cta{
+      background:var(--surface); border:1px solid var(--line); border-radius:var(--radius-xl); box-shadow:var(--shadow);
+    }
+    .hero,.card,.contact-box,.cta{padding:26px}
+    .eyebrow{
+      display:inline-flex; padding:8px 12px; border-radius:999px; background:#dbeafe;
+      color:#1e3a8a; font-size:.9rem; font-weight:800; margin-bottom:16px;
+    }
+    h1,h2,h3{line-height:1.22; letter-spacing:-.03em; margin:0 0 14px}
+    h1{font-size:clamp(2rem,4vw,3rem)}
+    h2{font-size:clamp(1.35rem,2.5vw,2rem)}
+    h3{font-size:1.08rem}
+    p{margin:0 0 14px; color:var(--muted)}
+    .lead{font-size:1.06rem}
+    section{padding:22px 0}
+    .grid-2{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px}
+    .mini-badge{
+      display:inline-block; padding:6px 10px; border-radius:999px; background:var(--soft);
+      color:#1e3a8a; font-size:.82rem; font-weight:800; margin-bottom:10px;
+    }
+    ul{margin:10px 0 0; padding-left:18px; color:var(--muted)}
+    li{margin-bottom:8px}
+    .email-box{
+      display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;
+      padding:18px; border:1px solid var(--line); border-radius:18px; background:#f8fbff;
+    }
+    .email-box strong{font-size:1.05rem}
+    .link-row{display:flex; gap:10px; flex-wrap:wrap}
+    .link-btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      min-height:46px; padding:0 16px; border-radius:14px; font-weight:800;
+    }
+    .link-btn.primary{background:var(--primary); color:#fff}
+    .link-btn.secondary{background:#e2e8f0; color:var(--text)}
+    footer{border-top:1px solid var(--line); background:#fff}
+    .footer-inner{
+      padding:26px 0 38px; display:grid; grid-template-columns:1.2fr .8fr; gap:22px;
+    }
+    .footer-links{display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end}
+    .footer-links a{
+      padding:10px 12px; border-radius:12px; background:#f1f5f9; color:var(--muted); font-weight:700;
+    }
+    .footer-note{font-size:.94rem; color:#64748b; margin-top:10px}
+    @media (max-width:860px){
+      .grid-2,.footer-inner{grid-template-columns:1fr}
+      .footer-links{justify-content:flex-start}
+    }
+    @media (max-width:720px){
+      .container{width:min(calc(100% - 24px), var(--max))}
+      .topbar{flex-direction:column; align-items:flex-start}
+      nav{width:100%}
+      .hero,.card,.faq-card,.cta{padding:20px}
+      .link-row{flex-direction:column}
+      .link-btn{width:100%}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container topbar">
+      <a class="brand" href="/"><span class="badge">CG</span><span>ComplaintGuide</span></a>
+      <nav>
+        <a href="/">홈</a>
+        <a href="/search/">민원 찾기</a>
+        <a href="/guides/">가이드</a>
+        <a href="/faq/">FAQ</a>
+        <a class="cta" href="/search/">지금 찾아보기</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="/">홈</a><span>/</span><span>문의하기</span>
+      </div>
+
+      <article class="hero">
+        <span class="eyebrow">문의하기</span>
+        <h1>ComplaintGuide에 문의하기</h1>
+        <p class="lead">
+          서비스 관련 문의, 수정 요청, 협업 제안, 콘텐츠 보완 요청은 아래 이메일로 보내실 수 있습니다.
+        </p>
+        <p>
+          문의 내용을 보내실 때는 어떤 페이지에 대한 문의인지,
+          어떤 부분을 수정하거나 확인하고 싶은지 함께 적어주시면 더 빠르게 확인하기 좋습니다.
+        </p>
+      </article>
+
+      <section>
+        <div class="contact-box">
+          <h2>이메일 문의</h2>
+          <div class="email-box">
+            <div>
+              <p style="margin-bottom:6px;">문의 이메일</p>
+              <strong>upshop79@gmail.com</strong>
+            </div>
+            <div class="link-row">
+              <a class="link-btn primary" href="mailto:upshop79@gmail.com">메일 보내기</a>
+              <a class="link-btn secondary" href="https://mail.google.com/mail/?view=cm&to=upshop79@gmail.com" target="_blank" rel="noopener noreferrer">Gmail에서 열기</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="grid-2">
+          <div class="card">
+            <span class="mini-badge">문의 예시</span>
+            <h2>이런 내용을 보낼 수 있습니다</h2>
+            <ul>
+              <li>특정 페이지 내용 수정 요청</li>
+              <li>잘못된 링크 또는 오타 제보</li>
+              <li>새로운 민원 가이드 추가 제안</li>
+              <li>사이트 구조 또는 협업 관련 문의</li>
+              <li>광고·제휴 관련 기본 문의</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <span class="mini-badge">보내기 전에</span>
+            <h2>함께 적으면 좋은 정보</h2>
+            <ul>
+              <li>문의 대상 페이지 주소</li>
+              <li>문제가 발생한 상황 설명</li>
+              <li>수정이 필요한 문장 또는 위치</li>
+              <li>원하는 변경 방향</li>
+              <li>회신을 원하는 경우 답장 가능한 이메일</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="cta">
+          <h2>다른 안내 페이지 보기</h2>
+          <p>
+            서비스 성격, 개인정보 처리, 이용약관이 궁금하면 아래 페이지를 함께 확인해 주세요.
+          </p>
+          <div class="link-row">
+            <a class="link-btn primary" href="/about/">서비스 소개</a>
+            <a class="link-btn secondary" href="/privacy/">개인정보 처리방침</a>
+            <a class="link-btn secondary" href="/terms/">이용약관</a>
+            <a class="link-btn secondary" href="/faq/">FAQ</a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div>
+        <a class="brand" href="/"><span class="badge">CG</span><span>ComplaintGuide</span></a>
+        <p class="footer-note">
+          ComplaintGuide는 생활 속 문제 상황에서 적절한 문의 기관과 공식 민원 경로를
+          이해하기 쉽게 안내하는 정보형 서비스입니다.
+        </p>
+      </div>
+      <div class="footer-links">
+        <a href="/about/">About</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/terms/">Terms</a>
+        <a href="/contact/">Contact</a>
+        <a href="/faq/">FAQ</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
