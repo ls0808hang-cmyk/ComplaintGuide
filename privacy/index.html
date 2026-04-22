@@ -1,78 +1,226 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>개인정보처리방침 | ComplaintGuide</title>
-  <link rel="stylesheet" href="/assets/css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>개인정보 처리방침 | ComplaintGuide</title>
+  <meta
+    name="description"
+    content="ComplaintGuide 개인정보 처리방침 페이지입니다. 수집 가능한 정보, 이용 목적, 보관, 제3자 제공, 문의 방법 등을 안내합니다."
+  />
+  <meta name="robots" content="index,follow" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="개인정보 처리방침 | ComplaintGuide" />
+  <meta
+    property="og:description"
+    content="ComplaintGuide의 개인정보 처리 원칙과 문의 방법을 안내합니다."
+  />
+  <meta property="og:locale" content="ko_KR" />
+  <meta name="theme-color" content="#0f172a" />
+  <style>
+    :root {
+      --bg:#f8fafc; --surface:#ffffff; --line:#e2e8f0; --text:#0f172a; --muted:#475569;
+      --primary:#1d4ed8; --accent:#0f766e;
+      --shadow:0 14px 40px rgba(15,23,42,.08); --radius-xl:24px; --max:1080px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:"Pretendard","Noto Sans KR","Apple SD Gothic Neo",Arial,sans-serif;
+      color:var(--text);
+      background:radial-gradient(circle at top left, rgba(29,78,216,.06), transparent 28%), var(--bg);
+      line-height:1.72;
+    }
+    a{text-decoration:none;color:inherit}
+    .container{width:min(calc(100% - 32px), var(--max)); margin:0 auto}
+    header{
+      position:sticky; top:0; z-index:20;
+      background:rgba(248,250,252,.9); backdrop-filter:blur(10px);
+      border-bottom:1px solid var(--line);
+    }
+    .topbar{display:flex; justify-content:space-between; align-items:center; gap:16px; padding:14px 0}
+    .brand{display:flex; align-items:center; gap:10px; font-weight:800}
+    .badge{
+      width:38px; height:38px; border-radius:12px; display:grid; place-items:center;
+      background:linear-gradient(135deg,var(--primary),var(--accent)); color:#fff; font-weight:900;
+    }
+    nav{display:flex; gap:10px; flex-wrap:wrap}
+    nav a{padding:10px 14px; border-radius:999px; color:var(--muted); font-weight:700}
+    nav a.cta{background:var(--primary); color:#fff}
+    main{padding:28px 0 40px}
+    .breadcrumb{display:flex; gap:8px; flex-wrap:wrap; color:#64748b; font-size:.92rem; margin-bottom:14px}
+    .hero,.policy,.cta{
+      background:var(--surface); border:1px solid var(--line); border-radius:var(--radius-xl); box-shadow:var(--shadow);
+    }
+    .hero,.policy,.cta{padding:26px}
+    .eyebrow{
+      display:inline-flex; padding:8px 12px; border-radius:999px; background:#dbeafe;
+      color:#1e3a8a; font-size:.9rem; font-weight:800; margin-bottom:16px;
+    }
+    h1,h2,h3{line-height:1.22; letter-spacing:-.03em; margin:0 0 14px}
+    h1{font-size:clamp(2rem,4vw,3rem)}
+    h2{font-size:clamp(1.25rem,2.3vw,1.8rem); margin-top:24px}
+    p{margin:0 0 14px; color:var(--muted)}
+    ul{margin:10px 0 14px; padding-left:18px; color:var(--muted)}
+    li{margin-bottom:8px}
+    .lead{font-size:1.06rem}
+    section{padding:22px 0}
+    .link-row{display:flex; gap:10px; flex-wrap:wrap}
+    .link-btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      min-height:46px; padding:0 16px; border-radius:14px; font-weight:800;
+    }
+    .link-btn.primary{background:var(--primary); color:#fff}
+    .link-btn.secondary{background:#e2e8f0; color:var(--text)}
+    footer{border-top:1px solid var(--line); background:#fff}
+    .footer-inner{
+      padding:26px 0 38px; display:grid; grid-template-columns:1.2fr .8fr; gap:22px;
+    }
+    .footer-links{display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end}
+    .footer-links a{
+      padding:10px 12px; border-radius:12px; background:#f1f5f9; color:var(--muted); font-weight:700;
+    }
+    .footer-note{font-size:.94rem; color:#64748b; margin-top:10px}
+    @media (max-width:860px){
+      .footer-inner{grid-template-columns:1fr}
+      .footer-links{justify-content:flex-start}
+    }
+    @media (max-width:720px){
+      .container{width:min(calc(100% - 24px), var(--max))}
+      .topbar{flex-direction:column; align-items:flex-start}
+      nav{width:100%}
+      .hero,.policy,.cta{padding:20px}
+      .link-row{flex-direction:column}
+      .link-btn{width:100%}
+    }
+  </style>
 </head>
 <body>
-  <header class="site-header">
+  <header>
     <div class="container topbar">
-      <a class="brand" href="/">
-        <span class="brand-badge">CG</span>
-        <span>ComplaintGuide</span>
-      </a>
-      <nav class="nav-links">
+      <a class="brand" href="/"><span class="badge">CG</span><span>ComplaintGuide</span></a>
+      <nav>
         <a href="/">홈</a>
+        <a href="/search/">민원 찾기</a>
         <a href="/guides/">가이드</a>
         <a href="/faq/">FAQ</a>
-        <a href="/about/">소개</a>
-        <a class="nav-cta" href="/search/">민원 찾기</a>
+        <a class="cta" href="/search/">지금 찾아보기</a>
       </nav>
     </div>
   </header>
 
-  <main class="container" style="padding: 60px 0; max-width: 900px;">
-    <h1>개인정보처리방침</h1>
-    <p style="margin-bottom: 30px;">본 방침은 2026년 4월 22일부터 시행됩니다.</p>
+  <main>
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="/">홈</a><span>/</span><span>개인정보 처리방침</span>
+      </div>
 
-    <section style="margin-bottom: 40px;">
-      <h2>1. 수집하는 개인정보 항목</h2>
-      <p>ComplaintGuide는 별도의 회원 가입 없이 이용 가능한 서비스로, 원칙적으로 사용자의 개인정보를 수집하지 않습니다. 다만, 서비스 이용 과정에서 다음과 같은 정보가 자동으로 생성되어 수집될 수 있습니다.</p>
-      <ul>
-        <li>IP 주소, 쿠키, 서비스 이용 기록, 접속 로그, 기기 정보</li>
-      </ul>
-    </section>
+      <article class="hero">
+        <span class="eyebrow">개인정보 처리방침</span>
+        <h1>ComplaintGuide 개인정보 처리방침</h1>
+        <p class="lead">
+          ComplaintGuide는 이용자의 개인정보를 소중하게 생각합니다.
+          이 페이지는 서비스 이용 과정에서 어떤 정보가 수집될 수 있고,
+          어떤 목적으로 이용될 수 있는지 이해하기 쉽게 설명하기 위한 문서입니다.
+        </p>
+        <p>
+          실제 운영 방식에 따라 수집 항목과 처리 방식은 달라질 수 있으므로,
+          사이트 기능이 변경되면 이 문서도 함께 업데이트해야 합니다.
+        </p>
+      </article>
 
-    <section style="margin-bottom: 40px;">
-      <h2>2. 개인정보의 수집 및 이용 목적</h2>
-      <p>수집된 정보는 다음과 같은 목적으로만 이용됩니다.</p>
-      <ul>
-        <li>서비스의 안정적인 운영 및 부정 이용 방지</li>
-        <li>접속 빈도 파악 및 서비스 이용에 대한 통계 분석</li>
-        <li>(Google AdSense 이용 시) 맞춤형 광고 제공</li>
-      </ul>
-    </section>
+      <section>
+        <div class="policy">
+          <h2>1. 수집할 수 있는 정보</h2>
+          <p>ComplaintGuide는 서비스 운영 과정에서 아래와 같은 정보를 수집할 수 있습니다.</p>
+          <ul>
+            <li>문의 폼이나 이메일을 통해 사용자가 직접 입력한 정보</li>
+            <li>브라우저, 기기, 접속 환경 등 기본적인 로그 정보</li>
+            <li>서비스 개선과 보안 관리를 위한 접속 기록</li>
+          </ul>
 
-    <section style="margin-bottom: 40px;">
-      <h2>3. 제3자 제공 및 위탁</h2>
-      <p>ComplaintGuide는 법령에 정해진 경우를 제외하고는 사용자의 정보를 제3자에게 제공하지 않습니다. 본 사이트는 Google에서 제공하는 웹 분석 서비스(Google Analytics) 및 광고 서비스(Google AdSense)를 이용할 수 있으며, 이 과정에서 익명의 데이터가 Google에 제공될 수 있습니다.</p>
-    </section>
+          <h2>2. 정보 이용 목적</h2>
+          <ul>
+            <li>문의 응답 및 사용자 요청 처리</li>
+            <li>서비스 품질 개선과 오류 확인</li>
+            <li>부정 이용 방지 및 보안 관리</li>
+            <li>사이트 운영과 사용자 경험 개선</li>
+          </ul>
 
-    <section style="margin-bottom: 40px;">
-      <h2>4. 개인정보의 보유 및 파기</h2>
-      <p>사용자의 개인정보를 수집하지 않으므로 파기할 대상이 없으나, 자동 생성된 로그 정보 등은 서버 운영 정책 및 관련 법령에 따라 일정 기간 보관 후 안전하게 파기됩니다.</p>
-    </section>
+          <h2>3. 민감한 정보에 대한 안내</h2>
+          <p>
+            ComplaintGuide는 민원 안내 서비스를 제공하지만,
+            사용자는 문의 과정에서 불필요한 민감 정보나 과도한 개인정보를 입력하지 않는 것이 좋습니다.
+          </p>
 
-    <section style="margin-bottom: 40px;">
-      <h2>5. 이용자의 권리</h2>
-      <p>이용자는 언제든지 웹 브라우저의 설정을 통해 쿠키 수집을 거부할 수 있습니다. 다만, 쿠키 저장을 거부할 경우 일부 맞춤형 서비스 이용에 어려움이 있을 수 있습니다.</p>
-    </section>
+          <h2>4. 보관 기간</h2>
+          <p>
+            개인정보는 수집 목적이 달성되면 지체 없이 삭제하거나,
+            더 이상 필요하지 않은 범위에서 안전하게 관리합니다.
+            다만 서비스 운영, 보안, 문의 응답을 위해 일정 기간 보관이 필요할 수 있습니다.
+          </p>
 
-    <section style="margin-bottom: 40px;">
-      <h2>6. 개인정보 보호책임자</h2>
-      <p>이름: 관리자<br>이메일: admin@complaint-guide.com</p>
-    </section>
+          <h2>5. 제3자 제공</h2>
+          <p>
+            ComplaintGuide는 원칙적으로 사용자의 개인정보를 외부에 판매하지 않습니다.
+            다만 법령상 요구가 있거나, 서비스 운영에 필요한 범위에서 처리 위탁이 발생할 수 있습니다.
+          </p>
+
+          <h2>6. 쿠키 및 유사 기술</h2>
+          <p>
+            서비스 운영과 통계 분석, 사용자 편의 향상을 위해
+            쿠키 또는 유사 기술이 사용될 수 있습니다.
+            사용자는 브라우저 설정을 통해 쿠키 저장을 거부할 수 있습니다.
+          </p>
+
+          <h2>7. 외부 링크</h2>
+          <p>
+            ComplaintGuide는 정부24, 국민신문고, 복지로, 소비자24 등 외부 사이트로 연결될 수 있습니다.
+            외부 사이트의 개인정보 처리 방식은 해당 사이트의 정책을 따릅니다.
+          </p>
+
+          <h2>8. 이용자 문의</h2>
+          <p>
+            개인정보 처리에 대한 문의는 아래 이메일로 보낼 수 있습니다.<br />
+            <strong>upshop79@gmail.com</strong>
+          </p>
+
+          <h2>9. 정책 변경</h2>
+          <p>
+            이 방침은 서비스 기능 변경, 운영 정책 변경 등에 따라 수정될 수 있습니다.
+            중요한 변경이 있는 경우 사이트 내에서 업데이트된 내용을 고지할 수 있습니다.
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <div class="cta">
+          <h2>문의하기</h2>
+          <p>개인정보 처리와 관련해 문의가 있으면 아래 페이지나 이메일로 연락해 주세요.</p>
+          <div class="link-row">
+            <a class="link-btn primary" href="/contact/">문의 페이지 보기</a>
+            <a class="link-btn secondary" href="mailto:upshop79@gmail.com">upshop79@gmail.com</a>
+          </div>
+        </div>
+      </section>
+    </div>
   </main>
 
   <footer>
     <div class="container footer-inner">
-      <p>&copy; 2026 ComplaintGuide. All rights reserved.</p>
-      <nav class="footer-links">
-        <a href="/">홈으로</a>
-        <a href="/terms/">이용약관</a>
-      </nav>
+      <div>
+        <a class="brand" href="/"><span class="badge">CG</span><span>ComplaintGuide</span></a>
+        <p class="footer-note">
+          ComplaintGuide는 생활 속 문제 상황에서 적절한 문의 기관과 공식 민원 경로를
+          이해하기 쉽게 안내하는 정보형 서비스입니다.
+        </p>
+      </div>
+      <div class="footer-links">
+        <a href="/about/">About</a>
+        <a href="/faq/">FAQ</a>
+        <a href="/terms/">Terms</a>
+        <a href="/contact/">Contact</a>
+      </div>
     </div>
   </footer>
 </body>
