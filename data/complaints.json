@@ -21,7 +21,7 @@
         }
       ],
       "cautions": "정당한 사유 없이 14일 이내에 신고하지 않으면 과태료가 부과될 수 있습니다.",
-      "guideUrl": "/guides/moving-report-guide.html"
+      "guideUrl": "/guides/move-in-registration.html"
     },
     {
       "id": "floor-noise",
@@ -44,7 +44,7 @@
         }
       ],
       "cautions": "직접적인 대면 항의보다는 관리사무소나 공식 중재 기관을 통하는 것이 안전합니다.",
-      "guideUrl": "/guides/floor-noise-guide.html"
+      "guideUrl": "/guides/noise-complaint.html"
     },
     {
       "id": "road-damage",
@@ -67,7 +67,7 @@
         }
       ],
       "cautions": "현장 사진 촬영 시 차량 통행에 유의하여 안전을 확보한 후 진행하세요.",
-      "guideUrl": "/guides/road-damage-guide.html"
+      "guideUrl": "/guides/road-damage.html"
     },
     {
       "id": "illegal-dumping",
@@ -90,7 +90,7 @@
         }
       ],
       "cautions": "허위 신고 시 불이익을 받을 수 있으므로 명확한 증거를 바탕으로 신고하세요.",
-      "guideUrl": "/guides/illegal-dumping-guide.html"
+      "guideUrl": "/guides/illegal-dumping.html"
     },
     {
       "id": "welfare-help",
@@ -113,7 +113,7 @@
         }
       ],
       "cautions": "부정 수급은 엄격히 금지되며, 상담을 통해 적합한 서비스를 찾는 것이 중요합니다.",
-      "guideUrl": "/guides/welfare-help-guide.html"
+      "guideUrl": "/guides/welfare-support.html"
     },
     {
       "id": "consumer-complaint",
@@ -136,7 +136,7 @@
         }
       ],
       "cautions": "피해 발생 즉시 증빙 자료를 확보하고 업체에 서면(내용증명 등)으로 의사를 표시하는 것이 좋습니다.",
-      "guideUrl": "/guides/consumer-complaint-guide.html"
+      "guideUrl": "/guides/consumer-damage.html"
     }
   ]
 }

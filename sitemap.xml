@@ -2,99 +2,58 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://complaintguide.pages.dev/</loc>
-    <lastmod>2026-04-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
+    <lastmod>2026-04-24</lastmod>
   </url>
-
   <url>
     <loc>https://complaintguide.pages.dev/search/</loc>
-    <lastmod>2026-04-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <lastmod>2026-04-24</lastmod>
   </url>
-
   <url>
     <loc>https://complaintguide.pages.dev/guides/</loc>
-    <lastmod>2026-04-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <lastmod>2026-04-24</lastmod>
   </url>
-
   <url>
-    <loc>https://complaintguide.pages.dev/guides/moving-report-guide.html</loc>
-    <lastmod>2026-04-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://complaintguide.pages.dev/guides/move-in-registration.html</loc>
+    <lastmod>2026-04-24</lastmod>
   </url>
-
   <url>
-    <loc>https://complaintguide.pages.dev/guides/floor-noise-guide.html</loc>
-    <lastmod>2026-04-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://complaintguide.pages.dev/guides/noise-complaint.html</loc>
+    <lastmod>2026-04-24</lastmod>
   </url>
-
   <url>
-    <loc>https://complaintguide.pages.dev/guides/road-damage-guide.html</loc>
-    <lastmod>2026-04-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://complaintguide.pages.dev/guides/road-damage.html</loc>
+    <lastmod>2026-04-24</lastmod>
   </url>
-
   <url>
-    <loc>https://complaintguide.pages.dev/guides/illegal-dumping-guide.html</loc>
-    <lastmod>2026-04-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://complaintguide.pages.dev/guides/illegal-dumping.html</loc>
+    <lastmod>2026-04-24</lastmod>
   </url>
-
   <url>
-    <loc>https://complaintguide.pages.dev/guides/welfare-help-guide.html</loc>
-    <lastmod>2026-04-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://complaintguide.pages.dev/guides/welfare-support.html</loc>
+    <lastmod>2026-04-24</lastmod>
   </url>
-
   <url>
-    <loc>https://complaintguide.pages.dev/guides/consumer-complaint-guide.html</loc>
-    <lastmod>2026-04-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://complaintguide.pages.dev/guides/consumer-damage.html</loc>
+    <lastmod>2026-04-24</lastmod>
   </url>
-
   <url>
     <loc>https://complaintguide.pages.dev/faq/</loc>
-    <lastmod>2026-04-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-04-24</lastmod>
   </url>
-
   <url>
     <loc>https://complaintguide.pages.dev/about/</loc>
-    <lastmod>2026-04-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <lastmod>2026-04-24</lastmod>
   </url>
-
   <url>
     <loc>https://complaintguide.pages.dev/privacy/</loc>
-    <lastmod>2026-04-22</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.4</priority>
+    <lastmod>2026-04-24</lastmod>
   </url>
-
   <url>
     <loc>https://complaintguide.pages.dev/terms/</loc>
-    <lastmod>2026-04-22</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.4</priority>
+    <lastmod>2026-04-24</lastmod>
   </url>
-
   <url>
     <loc>https://complaintguide.pages.dev/contact/</loc>
-    <lastmod>2026-04-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <lastmod>2026-04-24</lastmod>
   </url>
 </urlset>
